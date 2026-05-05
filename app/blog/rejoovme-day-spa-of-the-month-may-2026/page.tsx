@@ -12,7 +12,6 @@ import {
 import { Header } from '@/components/Header';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Footer } from '@/components/Footer';
-import { MobileStickyCTA } from '@/components/MobileStickyCTA';
 
 const SLUG = '/blog/rejoovme-day-spa-of-the-month-may-2026';
 const URL = `${SITE.url}${SLUG}`;
@@ -224,7 +223,6 @@ export default function RejoovMeFeaturePost() {
         </article>
       </main>
       <Footer />
-      <MobileStickyCTA />
     </>
   );
 }

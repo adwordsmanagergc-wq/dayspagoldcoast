@@ -13,24 +13,24 @@ export function CompetitorList() {
         </p>
       </div>
 
-      <ul className="grid gap-5 sm:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         {competitors.map((s, idx) => (
           <li
             key={s.name}
-            className="flex gap-4 rounded-xl bg-white/60 p-4 ring-1 ring-black/5 transition hover:bg-white"
+            className="flex flex-col gap-4 rounded-xl bg-white/60 p-4 ring-1 ring-black/5 transition hover:bg-white sm:flex-row"
           >
-            <div className="relative h-24 w-24 flex-none overflow-hidden rounded-lg">
+            <div className="relative h-16 w-16 flex-none overflow-hidden rounded-lg sm:h-24 sm:w-24">
               <CompetitorMonogram name={s.name} />
             </div>
-            <div className="min-w-0">
-              <div className="flex items-baseline gap-2">
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-baseline gap-2">
                 <span className="text-xs font-semibold text-rejoov-ink/40">#{idx + 2}</span>
-                <h3 className="truncate font-display text-base font-semibold text-rejoov-ink">
+                <h3 className="font-display text-base font-semibold text-rejoov-ink">
                   {s.name}
                 </h3>
               </div>
               <p className="text-xs text-rejoov-ink/60">{s.suburb}</p>
-              <p className="mt-1.5 text-sm leading-relaxed text-rejoov-ink/75">
+              <p className="mt-1.5 break-words text-sm leading-relaxed text-rejoov-ink/75">
                 {s.description}
               </p>
               <a

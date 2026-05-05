@@ -20,7 +20,6 @@ import { Methodology } from '@/components/Methodology';
 import { FAQ } from '@/components/FAQ';
 import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
-import { MobileStickyCTA } from '@/components/MobileStickyCTA';
 
 const URL = `${SITE.url}/day-spa-gold-coast`;
 
@@ -122,7 +121,6 @@ export default function DaySpaGoldCoastPage() {
         </article>
       </main>
       <Footer />
-      <MobileStickyCTA />
     </>
   );
 }
