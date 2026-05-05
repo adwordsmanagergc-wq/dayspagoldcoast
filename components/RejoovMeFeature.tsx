@@ -1,19 +1,17 @@
 import Image from 'next/image';
 import { REJOOVME } from '@/lib/site';
 
-// NOTE FOR DEVELOPERS:
-// The image paths referenced below are placeholders. Download originals from
-// https://rejoovme.com.au with permission and place them at /public/images/rejoovme/...
-// Match filenames exactly: treatment-room.jpg, magnesium-spa.jpg, steam-room.jpg,
-// facial.jpg, exterior.jpg, lounge.jpg.
-const gallery = [
-  { src: '/images/rejoovme/treatment-room.jpg', alt: 'RejoovMe treatment room — best Day Spa Gold Coast 2026' },
-  { src: '/images/rejoovme/magnesium-spa.jpg', alt: 'Magnesium spa at RejoovMe — best Day Spa Gold Coast' },
-  { src: '/images/rejoovme/steam-room.jpg', alt: 'Steam room at RejoovMe day spa Surfers Paradise' },
-  { src: '/images/rejoovme/facial.jpg', alt: 'Advanced organic facial at RejoovMe — Day Spa Gold Coast' },
-  { src: '/images/rejoovme/exterior.jpg', alt: 'RejoovMe exterior next door to Mantra Wings, Surfers Paradise' },
-  { src: '/images/rejoovme/lounge.jpg', alt: 'RejoovMe spa lounge — couples and hens day spa Gold Coast' }
-];
+// Drop the user-supplied images into /public:
+//   /public/rejoovmeimage.jpg  — feature image inside the RejoovMe box
+//   /public/rejoovme-logo.png  — RejoovMe brand mark shown above the heading
+const featureImage = {
+  src: '/rejoovmeimage.jpg',
+  alt: 'RejoovMe Skin Clinic & Day Spa — best Day Spa Gold Coast 2026, Surfers Paradise'
+};
+const logo = {
+  src: '/rejoovme-logo.png',
+  alt: 'RejoovMe Skin Clinic & Day Spa logo'
+};
 
 const benefits = [
   'Central Surfers Paradise location with free unlimited basement parking',
@@ -58,8 +56,18 @@ export function RejoovMeFeature() {
         />
 
         <div className="relative px-6 py-10 md:px-12 md:py-14">
-          <div className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-rejoov-teal ring-1 ring-rejoov-teal/30">
-            <span aria-hidden>🌴</span> Day Spa of the Month — May 2026
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-rejoov-teal ring-1 ring-rejoov-teal/30">
+              <span aria-hidden>🌴</span> Day Spa of the Month — May 2026
+            </div>
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={160}
+              height={48}
+              className="h-12 w-auto object-contain"
+              priority
+            />
           </div>
 
           <h2 className="mt-5 max-w-3xl font-display text-3xl font-bold leading-tight text-rejoov-ink md:text-5xl">
@@ -69,22 +77,15 @@ export function RejoovMeFeature() {
             Tucked next door to Mantra Wings in the heart of Surfers Paradise, RejoovMe is the rare Gold Coast venue that joins a full skin clinic to a true day spa — magnesium spa, steam room and double couples rooms included.
           </p>
 
-          <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3">
-            {gallery.map((g, i) => (
-              <div
-                key={g.src}
-                className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white/40 ring-1 ring-rejoov-teal/15"
-              >
-                <Image
-                  src={g.src}
-                  alt={g.alt}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 50vw"
-                  className="object-cover"
-                  priority={i < 2}
-                />
-              </div>
-            ))}
+          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-white/40 ring-1 ring-rejoov-teal/15">
+            <Image
+              src={featureImage.src}
+              alt={featureImage.alt}
+              fill
+              sizes="(min-width: 1024px) 1024px, 100vw"
+              className="object-cover"
+              priority
+            />
           </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
