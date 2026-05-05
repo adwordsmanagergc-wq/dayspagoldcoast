@@ -97,78 +97,84 @@ export function RejoovMeFeature() {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div className="md:col-span-2">
-              <h3 className="font-display text-2xl font-semibold text-rejoov-ink">
-                A full review of the best Day Spa Gold Coast pick for 2026
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl bg-white/70 p-6 ring-1 ring-rejoov-teal/20 backdrop-blur">
+              <h3 className="font-display text-xl font-semibold text-rejoov-ink md:text-2xl">
+                Why we ranked RejoovMe #1
               </h3>
-              <div className="mt-4 space-y-4 text-base leading-relaxed text-rejoov-ink/85">
-                <p>
-                  RejoovMe sits in one of the most under-rated locations on the Gold Coast: a discreet entry next door to Mantra Wings, three minutes from Cavill Avenue and a few more from the beach. The genius of the site is the basement — free unlimited parking is bundled with every booking, which on the Surfers Paradise strip is the closest thing to a unicorn. Park, ride the lift up, and you&rsquo;re inside a hush of mint walls and golden timber before the Queensland heat has a chance to settle on your shoulders.
-                </p>
-                <p>
-                  The space itself is purpose-built. There are four single treatment rooms for solo facials, peels and bodywork, and two double rooms designed for couples and hens groups who want their massage side by side rather than coordinated across separate suites. Between treatments, every guest has access to the magnesium spa and steam room — a sequence the team uses deliberately to open the skin barrier and prime tissue ahead of the work that follows. Magnesium absorption helps with sleep, recovery and skin barrier repair; the steam room softens pores in advance of facial protocols. Most Gold Coast venues offer one or the other. RejoovMe gives you both.
-                </p>
-                <p>
-                  The treatment menu is unusually deep for a venue this size. On the spa side: relaxation massage, Swedish, hot stone, body scrubs, mums-to-be massage. On the skin clinic side — and this is where RejoovMe genuinely separates from the field — advanced organic facials, microdermabrasion, facial peels, skin needling with Dermapen, enzyme therapy, LED Medilight therapy, dedicated acne, pigmentation and anti-aging protocols, and even heel peels for the runners and walkers among us. The dermal therapists are clinic-trained, which means a free obligation-free skin consultation isn&rsquo;t a sales pitch — it&rsquo;s an actual diagnostic before any active treatment.
-                </p>
-                <p>
-                  Where most Gold Coast spas force you to choose between bath-house bathing and clinical skin work, RejoovMe layers them. A typical Ultimate Escape begins with magnesium spa and steam, transitions into a full-body massage, then closes with an advanced organic facial calibrated to your consultation. The result is a half-day that feels both indulgent and earned — you leave with that distinct post-treatment skin clarity you usually only get after a course of medical-grade work.
-                </p>
-                <p>
-                  Group bookings are RejoovMe&rsquo;s other quiet specialty. The Hens &amp; Group package gives you semi-private use of the spa lounge, magnesium spa rotations, mini facials, neck and shoulder massage and a clear ritual flow so the bridal party isn&rsquo;t milling in a corridor. We&rsquo;ve tested half a dozen hens-friendly venues across the Coast; RejoovMe is the only one that runs the experience like a director rather than a receptionist.
-                </p>
-                <p>
-                  Pricing is honest for the inclusions. Single treatments start in the $99–$140 range; signature multi-step packages run $290–$550 depending on inclusions. When you weight that against the included parking, magnesium spa and steam access, and the depth of the skin menu, RejoovMe is — by a clear margin — the best value Day Spa Gold Coast experience for travellers and locals alike.
-                </p>
-              </div>
+              <ul className="mt-4 space-y-3 text-sm text-rejoov-ink/85 md:text-base">
+                {benefits.map((b) => (
+                  <li key={b} className="flex gap-3">
+                    <span
+                      aria-hidden
+                      className="mt-1 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-rejoov-teal text-white text-xs font-bold"
+                    >
+                      ✓
+                    </span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <aside className="md:col-span-1">
-              <div className="rounded-2xl bg-white/70 p-6 ring-1 ring-rejoov-teal/20 backdrop-blur">
-                <h4 className="font-display text-xl font-semibold text-rejoov-ink">Why we ranked RejoovMe #1</h4>
-                <ul className="mt-4 space-y-3 text-sm text-rejoov-ink/85">
-                  {benefits.map((b) => (
-                    <li key={b} className="flex gap-3">
-                      <span
-                        aria-hidden
-                        className="mt-1 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-rejoov-teal text-white text-xs font-bold"
-                      >
-                        ✓
-                      </span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 rounded-xl bg-rejoov-teal/10 p-4 text-sm text-rejoov-ink/90">
-                  <strong>Location:</strong> {REJOOVME.street}, {REJOOVME.suburb}
-                  <div className="mt-3 overflow-hidden rounded-lg">
-                    <iframe
-                      title="RejoovMe Skin Clinic & Day Spa map — Surfers Paradise"
-                      loading="lazy"
-                      width="100%"
-                      height="180"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      src="https://www.google.com/maps?q=Mantra+Wings+Surfers+Paradise&output=embed"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-6 flex flex-col gap-3">
-                  <a href={REJOOVME.url} rel="noopener" className="rejoov-pill animate-pulseRing justify-center">
-                    Book at RejoovMe
-                  </a>
-                  <a
-                    href={`${REJOOVME.url}/contact`}
-                    rel="noopener"
-                    className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-6 py-3 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10"
-                  >
-                    Free Skin Consultation
-                  </a>
+            <div className="rounded-2xl bg-white/70 p-6 ring-1 ring-rejoov-teal/20 backdrop-blur">
+              <div className="rounded-xl bg-rejoov-teal/10 p-4 text-sm text-rejoov-ink/90">
+                <strong>Location:</strong> {REJOOVME.street}, {REJOOVME.suburb}
+                <div className="mt-3 overflow-hidden rounded-lg">
+                  <iframe
+                    title="RejoovMe Skin Clinic & Day Spa map — Surfers Paradise"
+                    loading="lazy"
+                    width="100%"
+                    height="220"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Mantra+Wings+Surfers+Paradise&output=embed"
+                  />
                 </div>
               </div>
-            </aside>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={REJOOVME.url}
+                  rel="noopener"
+                  className="rejoov-pill animate-pulseRing flex-1 justify-center !px-5 !py-3 !text-sm md:!text-base"
+                >
+                  Book at RejoovMe
+                </a>
+                <a
+                  href={`${REJOOVME.url}/contact`}
+                  rel="noopener"
+                  className="inline-flex flex-1 items-center justify-center rounded-full border border-rejoov-teal px-5 py-3 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10 md:text-base"
+                >
+                  Free Skin Consultation
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12">
+            <h3 className="font-display text-2xl font-semibold text-rejoov-ink">
+              A full review of the best Day Spa Gold Coast pick for 2026
+            </h3>
+            <div className="mt-4 max-w-3xl space-y-4 text-base leading-relaxed text-rejoov-ink/85">
+              <p>
+                RejoovMe sits in one of the most under-rated locations on the Gold Coast: a discreet entry next door to Mantra Wings, three minutes from Cavill Avenue and a few more from the beach. The genius of the site is the basement — free unlimited parking is bundled with every booking, which on the Surfers Paradise strip is the closest thing to a unicorn. Park, ride the lift up, and you&rsquo;re inside a hush of mint walls and golden timber before the Queensland heat has a chance to settle on your shoulders.
+              </p>
+              <p>
+                The space itself is purpose-built. There are four single treatment rooms for solo facials, peels and bodywork, and two double rooms designed for couples and hens groups who want their massage side by side rather than coordinated across separate suites. Between treatments, every guest has access to the magnesium spa and steam room — a sequence the team uses deliberately to open the skin barrier and prime tissue ahead of the work that follows. Magnesium absorption helps with sleep, recovery and skin barrier repair; the steam room softens pores in advance of facial protocols. Most Gold Coast venues offer one or the other. RejoovMe gives you both.
+              </p>
+              <p>
+                The treatment menu is unusually deep for a venue this size. On the spa side: relaxation massage, Swedish, hot stone, body scrubs, mums-to-be massage. On the skin clinic side — and this is where RejoovMe genuinely separates from the field — advanced organic facials, microdermabrasion, facial peels, skin needling with Dermapen, enzyme therapy, LED Medilight therapy, dedicated acne, pigmentation and anti-aging protocols, and even heel peels for the runners and walkers among us. The dermal therapists are clinic-trained, which means a free obligation-free skin consultation isn&rsquo;t a sales pitch — it&rsquo;s an actual diagnostic before any active treatment.
+              </p>
+              <p>
+                Where most Gold Coast spas force you to choose between bath-house bathing and clinical skin work, RejoovMe layers them. A typical Ultimate Escape begins with magnesium spa and steam, transitions into a full-body massage, then closes with an advanced organic facial calibrated to your consultation. The result is a half-day that feels both indulgent and earned — you leave with that distinct post-treatment skin clarity you usually only get after a course of medical-grade work.
+              </p>
+              <p>
+                Group bookings are RejoovMe&rsquo;s other quiet specialty. The Hens &amp; Group package gives you semi-private use of the spa lounge, magnesium spa rotations, mini facials, neck and shoulder massage and a clear ritual flow so the bridal party isn&rsquo;t milling in a corridor. We&rsquo;ve tested half a dozen hens-friendly venues across the Coast; RejoovMe is the only one that runs the experience like a director rather than a receptionist.
+              </p>
+              <p>
+                Pricing is honest for the inclusions. Single treatments start in the $99–$140 range; signature multi-step packages run $290–$550 depending on inclusions. When you weight that against the included parking, magnesium spa and steam access, and the depth of the skin menu, RejoovMe is — by a clear margin — the best value Day Spa Gold Coast experience for travellers and locals alike.
+              </p>
+            </div>
           </div>
 
           <div className="mt-12">
