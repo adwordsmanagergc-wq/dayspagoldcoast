@@ -318,11 +318,49 @@ export default function Top7Post() {
                   </div>
                 </div>
 
+                {p.rank === 1 && (
+                  <div className="relative mt-5 aspect-[16/9] overflow-hidden rounded-xl ring-1 ring-rejoov-teal/15">
+                    <Image
+                      src="/rejoovmeimage2.jpg"
+                      alt="RejoovMe Skin Clinic & Day Spa — best Day Spa Gold Coast 2026, Surfers Paradise"
+                      fill
+                      sizes="(min-width: 768px) 700px, 100vw"
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                )}
+
                 <div className="mt-5 space-y-3 text-sm leading-relaxed text-rejoov-ink/85 md:text-base">
                   {p.copy.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
                 </div>
+
+                {p.rank === 1 && (
+                  <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3">
+                    {[
+                      { src: '/rejoovmeimage3.jpg', alt: 'Magnesium spa at RejoovMe — Day Spa Gold Coast Surfers Paradise' },
+                      { src: '/rejoovmeimage4.jpg', alt: 'Steam room at RejoovMe — best Day Spa Gold Coast' },
+                      { src: '/rejoovmeimage5.jpg', alt: 'Advanced organic facial at RejoovMe — Day Spa Gold Coast' },
+                      { src: '/rejoovmeimage6.jpg', alt: 'RejoovMe spa interior — luxury Day Spa Gold Coast' },
+                      { src: '/rejoovmeimage7.jpg', alt: 'RejoovMe couples and hens day spa Gold Coast' }
+                    ].map((g) => (
+                      <div
+                        key={g.src}
+                        className="relative aspect-[4/3] overflow-hidden rounded-lg ring-1 ring-rejoov-teal/15"
+                      >
+                        <Image
+                          src={g.src}
+                          alt={g.alt}
+                          fill
+                          sizes="(min-width: 768px) 33vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 <p className="mt-4 text-xs text-rejoov-ink/60">
                   <strong className="font-semibold text-rejoov-ink/80">Best for:</strong> {p.bestFor}
