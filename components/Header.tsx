@@ -17,13 +17,6 @@ export function Header() {
           <li><a href="#faq" className="hover:text-rejoov-teal">FAQ</a></li>
           <li><Link href="/blog/rejoovme-day-spa-of-the-month-may-2026" className="hover:text-rejoov-teal">Blog</Link></li>
         </ul>
-        <a
-          href="https://rejoovme.com.au"
-          rel="noopener"
-          className="rejoov-pill animate-pulseRing hidden md:inline-flex"
-        >
-          Book RejoovMe
-        </a>
       </nav>
     </header>
   );
