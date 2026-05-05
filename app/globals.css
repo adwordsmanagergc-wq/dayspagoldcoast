@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rejoov-teal: #4FD1C5;
+  --rejoov-mint: #81E6D9;
+  --rejoov-neon: #00FFCB;
+  --rejoov-ink: #313133;
+  --rejoov-sand: #FAF6F0;
+  --rejoov-gold: #D4AF7A;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--rejoov-sand);
+  color: var(--rejoov-ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.rejoov-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #4FD1C5 0%, #00FFCB 100%);
+  color: #093735;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 28px rgba(79,209,197,0.64);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.rejoov-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(79,209,197,0.7);
+}
+
+.wave-divider {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'><path d='M0 40 Q 300 80 600 40 T 1200 40 V80 H0Z' fill='%2381E6D9' fill-opacity='0.25'/></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
