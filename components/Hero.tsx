@@ -26,8 +26,12 @@ export function Hero({ readingMins }: { readingMins: number }) {
           Salt air, hinterland calm and Surfers Paradise polish — our editors ranked every Day Spa Gold Coast experience worth your weekend.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-          <a href="#day-spa-of-the-month" className="rejoov-pill animate-pulseRing">
-            Book the Day Spa of the Month — RejoovMe
+          <a
+            href="#day-spa-of-the-month"
+            className="rejoov-pill animate-pulseRing !px-5 !py-3 !text-sm md:!px-7 md:!py-4 md:!text-base"
+          >
+            <span className="md:hidden">Book RejoovMe</span>
+            <span className="hidden md:inline">Book the Day Spa of the Month — RejoovMe</span>
           </a>
           <a
             href="#methodology"

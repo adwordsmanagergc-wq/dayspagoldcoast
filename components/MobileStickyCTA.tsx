@@ -6,9 +6,9 @@ export function MobileStickyCTA() {
       <a
         href={REJOOVME.url}
         rel="noopener"
-        className="rejoov-pill animate-pulseRing flex w-full justify-center text-center"
+        className="rejoov-pill animate-pulseRing !px-5 !py-3 !text-sm flex w-full justify-center text-center"
       >
-        Book RejoovMe — Day Spa of the Month
+        Book RejoovMe
       </a>
     </div>
   );
