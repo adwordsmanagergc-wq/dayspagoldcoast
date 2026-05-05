@@ -6,8 +6,8 @@ export function Hero({ readingMins }: { readingMins: number }) {
     <section className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/hero/gold-coast-day-spa-hero.jpg"
-          alt="Sun-drenched palm fronds over Surfers Paradise — best Day Spa Gold Coast 2026 guide"
+          src="/images/hero/gold-coast-day-spa-hero.svg"
+          alt="Golden-hour Gold Coast horizon with palm silhouettes — best Day Spa Gold Coast 2026 guide"
           fill
           priority
           sizes="100vw"

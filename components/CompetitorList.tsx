@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { competitors } from '@/lib/data';
+import { CompetitorMonogram } from './CompetitorMonogram';
 
 export function CompetitorList() {
   return (
@@ -19,14 +19,8 @@ export function CompetitorList() {
             key={s.name}
             className="flex gap-4 rounded-xl bg-white/60 p-4 ring-1 ring-black/5 transition hover:bg-white"
           >
-            <div className="relative h-24 w-24 flex-none overflow-hidden rounded-lg bg-stone-100">
-              <Image
-                src={s.image}
-                alt={`${s.name} ${s.suburb} — Day Spa Gold Coast competitor`}
-                fill
-                sizes="96px"
-                className="object-cover"
-              />
+            <div className="relative h-24 w-24 flex-none overflow-hidden rounded-lg">
+              <CompetitorMonogram name={s.name} />
             </div>
             <div className="min-w-0">
               <div className="flex items-baseline gap-2">
