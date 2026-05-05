@@ -6,10 +6,6 @@ const logo = {
   src: '/rejoovme-logo.webp',
   alt: 'RejoovMe Skin Clinic & Day Spa logo'
 };
-const heroImage = {
-  src: '/rejoovmeimage1.png',
-  alt: 'RejoovMe Skin Clinic & Day Spa — best Day Spa Gold Coast 2026, Surfers Paradise'
-};
 const gallery = [
   { src: '/rejoovmeimage2.jpg', alt: 'RejoovMe treatment room — best Day Spa Gold Coast' },
   { src: '/rejoovmeimage3.jpg', alt: 'Magnesium spa at RejoovMe — Day Spa Gold Coast Surfers Paradise' },
@@ -83,19 +79,8 @@ export function RejoovMeFeature() {
             Tucked next door to Mantra Wings in the heart of Surfers Paradise, RejoovMe is the rare Gold Coast venue that joins a full skin clinic to a true day spa — magnesium spa, steam room and double couples rooms included.
           </p>
 
-          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-white/40 ring-1 ring-rejoov-teal/15">
-            <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
-              fill
-              sizes="(min-width: 1024px) 1024px, 100vw"
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
-            {gallery.map((g) => (
+          <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3">
+            {gallery.map((g, i) => (
               <div
                 key={g.src}
                 className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white/40 ring-1 ring-rejoov-teal/15"
@@ -106,6 +91,7 @@ export function RejoovMeFeature() {
                   fill
                   sizes="(min-width: 768px) 33vw, 50vw"
                   className="object-cover"
+                  priority={i < 2}
                 />
               </div>
             ))}
