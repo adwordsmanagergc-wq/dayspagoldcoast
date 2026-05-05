@@ -35,11 +35,12 @@ export const metadata: Metadata = {
 // Replace the placeholder image paths below with originals downloaded from
 // https://rejoovme.com.au with permission and stored at /public/images/rejoovme/.
 const gallery = [
-  { src: '/images/rejoovme/exterior.jpg', alt: 'RejoovMe Skin Clinic & Day Spa exterior — best Day Spa Gold Coast 2026' },
-  { src: '/images/rejoovme/treatment-room.jpg', alt: 'RejoovMe single treatment room — Day Spa Gold Coast' },
-  { src: '/images/rejoovme/magnesium-spa.jpg', alt: 'RejoovMe magnesium spa — Day Spa Gold Coast Surfers Paradise' },
-  { src: '/images/rejoovme/steam-room.jpg', alt: 'Steam room at RejoovMe — best Day Spa Gold Coast' },
-  { src: '/images/rejoovme/facial.jpg', alt: 'Advanced organic facial at RejoovMe — Day Spa Gold Coast' }
+  { src: '/rejoovmeimage2.jpg', alt: 'RejoovMe Skin Clinic & Day Spa — best Day Spa Gold Coast 2026, Surfers Paradise' },
+  { src: '/rejoovmeimage3.jpg', alt: 'RejoovMe magnesium spa — Day Spa Gold Coast Surfers Paradise' },
+  { src: '/rejoovmeimage4.jpg', alt: 'Steam room at RejoovMe — best Day Spa Gold Coast' },
+  { src: '/rejoovmeimage5.jpg', alt: 'Advanced organic facial at RejoovMe — Day Spa Gold Coast' },
+  { src: '/rejoovmeimage6.jpg', alt: 'RejoovMe spa interior — luxury Day Spa Gold Coast' },
+  { src: '/rejoovmeimage7.jpg', alt: 'RejoovMe couples and hens day spa Gold Coast' }
 ];
 
 export default function RejoovMeFeaturePost() {
