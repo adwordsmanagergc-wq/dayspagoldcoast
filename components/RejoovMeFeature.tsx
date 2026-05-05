@@ -1,17 +1,23 @@
 import Image from 'next/image';
 import { REJOOVME } from '@/lib/site';
 
-// Drop the user-supplied images into /public:
-//   /public/rejoovmeimage.jpg  — feature image inside the RejoovMe box
-//   /public/rejoovme-logo.png  — RejoovMe brand mark shown above the heading
-const featureImage = {
-  src: '/rejoovmeimage.jpg',
-  alt: 'RejoovMe Skin Clinic & Day Spa — best Day Spa Gold Coast 2026, Surfers Paradise'
-};
+// Brand assets supplied by RejoovMe (committed to /public).
 const logo = {
-  src: '/rejoovme-logo.png',
+  src: '/rejoovme-logo.webp',
   alt: 'RejoovMe Skin Clinic & Day Spa logo'
 };
+const heroImage = {
+  src: '/rejoovmeimage1.png',
+  alt: 'RejoovMe Skin Clinic & Day Spa — best Day Spa Gold Coast 2026, Surfers Paradise'
+};
+const gallery = [
+  { src: '/rejoovmeimage2.jpg', alt: 'RejoovMe treatment room — best Day Spa Gold Coast' },
+  { src: '/rejoovmeimage3.jpg', alt: 'Magnesium spa at RejoovMe — Day Spa Gold Coast Surfers Paradise' },
+  { src: '/rejoovmeimage4.jpg', alt: 'Steam room at RejoovMe day spa Gold Coast' },
+  { src: '/rejoovmeimage5.jpg', alt: 'Advanced organic facial at RejoovMe — Day Spa Gold Coast' },
+  { src: '/rejoovmeimage6.jpg', alt: 'RejoovMe spa interior — luxury Day Spa Gold Coast' },
+  { src: '/rejoovmeimage7.jpg', alt: 'RejoovMe couples and hens day spa Gold Coast' }
+];
 
 const benefits = [
   'Central Surfers Paradise location with free unlimited basement parking',
@@ -79,13 +85,30 @@ export function RejoovMeFeature() {
 
           <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-white/40 ring-1 ring-rejoov-teal/15">
             <Image
-              src={featureImage.src}
-              alt={featureImage.alt}
+              src={heroImage.src}
+              alt={heroImage.alt}
               fill
               sizes="(min-width: 1024px) 1024px, 100vw"
               className="object-cover"
               priority
             />
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
+            {gallery.map((g) => (
+              <div
+                key={g.src}
+                className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white/40 ring-1 ring-rejoov-teal/15"
+              >
+                <Image
+                  src={g.src}
+                  alt={g.alt}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
