@@ -213,8 +213,8 @@ export default function HensPartyPost() {
 
           <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl ring-1 ring-rejoov-teal/20">
             <Image
-              src="/rejoovmeimage7.jpg"
-              alt="Hens party day spa Gold Coast — RejoovMe group package, Surfers Paradise"
+              src="/rejoovmeimage5.jpg"
+              alt="Hens party Gold Coast — champagne in the magnesium spa at RejoovMe, Surfers Paradise"
               fill
               priority
               sizes="(min-width: 768px) 768px, 100vw"

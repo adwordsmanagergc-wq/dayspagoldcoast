@@ -40,8 +40,8 @@ export const posts: Post[] = [
     title: 'Hens Party Gold Coast Ideas 2026',
     excerpt:
       'Eight editor-tested hens party Gold Coast ideas for 2026 — RejoovMe\'s 20-guest day spa package leads the list, plus brunch, cocktail classes, surf lessons, hinterland wineries and yacht charters.',
-    cover: '/rejoovmeimage7.jpg',
-    coverAlt: 'Hens party Gold Coast ideas 2026 — RejoovMe day spa group package',
+    cover: '/rejoovmeimage5.jpg',
+    coverAlt: 'Hens party Gold Coast ideas 2026 — champagne in the magnesium spa at RejoovMe',
     datePublished: '2026-04-10',
     dateHuman: 'April 2026',
     readingMins: 8,
