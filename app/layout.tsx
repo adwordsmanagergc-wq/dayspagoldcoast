@@ -78,7 +78,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/hero/gold-coast-day-spa-hero.svg"
+          href="/images/hero/gold-coast-hero.jpg"
           fetchPriority="high"
         />
         <Script
