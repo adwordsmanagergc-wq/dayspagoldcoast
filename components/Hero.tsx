@@ -19,23 +19,23 @@ export function Hero({ readingMins }: { readingMins: number }) {
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-rejoov-gold drop-shadow-sm">
           Independently reviewed · {SITE.lastUpdatedHuman} · Locally curated
         </p>
-        <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold leading-[1.05] text-white drop-shadow md:text-6xl">
+        <h1 className="mx-auto max-w-4xl font-display text-3xl font-bold leading-[1.1] text-white drop-shadow sm:text-4xl md:text-6xl">
           The Best Day Spa Gold Coast Guide For 2026
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90 md:text-xl">
+        <p className="mx-auto mt-6 max-w-2xl text-base text-white/90 sm:text-lg md:text-xl">
           Salt air, hinterland calm and Surfers Paradise polish — our editors ranked every Day Spa Gold Coast experience worth your weekend.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
           <a
             href="#day-spa-of-the-month"
-            className="rejoov-pill animate-pulseRing !px-5 !py-3 !text-sm md:!px-7 md:!py-4 md:!text-base"
+            className="rejoov-pill animate-pulseRing !px-4 !py-2.5 !text-sm md:!px-7 md:!py-4 md:!text-base"
           >
             <span className="md:hidden">Book RejoovMe</span>
             <span className="hidden md:inline">Book the Day Spa of the Month — RejoovMe</span>
           </a>
           <a
             href="#methodology"
-            className="rounded-full border border-white/60 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/20"
+            className="rounded-full border border-white/60 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 md:px-6 md:py-3"
           >
             How we ranked
           </a>

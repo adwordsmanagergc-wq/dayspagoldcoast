@@ -16,6 +16,11 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   background: var(--rejoov-sand);
   color: var(--rejoov-ink);
