@@ -27,13 +27,18 @@ export function Hero({ readingMins }: { readingMins: number }) {
           Salt air, hinterland calm and Surfers Paradise polish — our editors ranked every Day Spa Gold Coast experience worth your weekend.
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-          <a
-            href="#day-spa-of-the-month"
-            className="rejoov-pill animate-pulseRing !px-4 !py-2.5 !text-sm md:!px-7 md:!py-4 md:!text-base"
-          >
-            <span className="md:hidden">Book RejoovMe</span>
-            <span className="hidden md:inline">Book the Day Spa of the Month — RejoovMe</span>
-          </a>
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rejoov-gold drop-shadow [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
+              ⭐ Day Spa of the Month
+            </span>
+            <a
+              href="#day-spa-of-the-month"
+              className="rejoov-pill animate-pulseRing !px-4 !py-2.5 !text-sm md:!px-7 md:!py-4 md:!text-base"
+            >
+              <span className="md:hidden">Book RejoovMe</span>
+              <span className="hidden md:inline">Book the Day Spa of the Month — RejoovMe</span>
+            </a>
+          </div>
           <a
             href="#methodology"
             className="rounded-full border border-white/60 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 md:px-6 md:py-3"
