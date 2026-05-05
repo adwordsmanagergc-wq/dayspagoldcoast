@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import { SITE, REJOOVME } from '@/lib/site';
+import { posts } from '@/lib/posts';
 import {
   articleSchema,
   breadcrumbSchema,
@@ -50,6 +51,7 @@ export default function RejoovMeFeaturePost() {
     { name: 'RejoovMe — Day Spa of the Month, May 2026', href: SLUG }
   ];
 
+  const post = posts.find((p) => p.slug === SLUG)!;
   const article = articleSchema({
     headline: 'RejoovMe — Day Spa of the Month, May 2026',
     description:
@@ -57,7 +59,9 @@ export default function RejoovMeFeaturePost() {
     url: URL,
     image: `${SITE.url}/og/rejoovme-feature.jpg`,
     datePublished: '2026-05-01',
-    dateModified: SITE.lastUpdatedISO
+    dateModified: SITE.lastUpdatedISO,
+    author: post.author,
+    reviewer: post.reviewer
   });
 
   const breadcrumb = breadcrumbSchema(
@@ -103,7 +107,7 @@ export default function RejoovMeFeaturePost() {
             RejoovMe Skin Clinic &amp; Day Spa: The Best Day Spa Gold Coast Has To Offer
           </h1>
           <p className="mt-3 text-sm text-rejoov-ink/60">
-            By {SITE.author.name} · Reviewed by {SITE.reviewer.name} · {SITE.lastUpdatedHuman} · 8 min read
+            By {post.author.name} · Reviewed by {post.reviewer.name} · {SITE.lastUpdatedHuman} · 8 min read
           </p>
 
           <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl ring-1 ring-rejoov-teal/20">

@@ -29,31 +29,29 @@ export const articleSchema = (opts: {
   image: string;
   datePublished: string;
   dateModified: string;
-}) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: opts.headline,
-  description: opts.description,
-  mainEntityOfPage: opts.url,
-  image: [opts.image],
-  datePublished: opts.datePublished,
-  dateModified: opts.dateModified,
-  author: {
-    '@type': 'Person',
-    name: SITE.author.name,
-    jobTitle: SITE.author.role
-  },
-  reviewedBy: {
-    '@type': 'Person',
-    name: SITE.reviewer.name,
-    jobTitle: SITE.reviewer.role
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: SITE.name,
-    logo: { '@type': 'ImageObject', url: `${SITE.url}/og/logo.png` }
-  }
-});
+  author?: { name: string; role: string };
+  reviewer?: { name: string; role: string };
+}) => {
+  const author = opts.author ?? SITE.author;
+  const reviewer = opts.reviewer ?? SITE.reviewer;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: opts.headline,
+    description: opts.description,
+    mainEntityOfPage: opts.url,
+    image: [opts.image],
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified,
+    author: { '@type': 'Person', name: author.name, jobTitle: author.role },
+    reviewedBy: { '@type': 'Person', name: reviewer.name, jobTitle: reviewer.role },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      logo: { '@type': 'ImageObject', url: `${SITE.url}/og/logo.png` }
+    }
+  };
+};
 
 export const itemListSchema = (
   items: { position: number; name: string; url: string; description?: string }[]

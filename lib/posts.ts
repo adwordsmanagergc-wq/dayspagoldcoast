@@ -1,3 +1,5 @@
+export type Byline = { name: string; role: string };
+
 export type Post = {
   slug: string;
   title: string;
@@ -8,6 +10,8 @@ export type Post = {
   dateHuman: string;
   readingMins: number;
   tags: string[];
+  author: Byline;
+  reviewer: Byline;
 };
 
 export const posts: Post[] = [
@@ -21,7 +25,9 @@ export const posts: Post[] = [
     datePublished: '2026-05-01',
     dateHuman: 'May 2026',
     readingMins: 8,
-    tags: ['Day Spa of the Month', 'Surfers Paradise', 'RejoovMe']
+    tags: ['Day Spa of the Month', 'Surfers Paradise', 'RejoovMe'],
+    author: { name: 'Tessa Nguyen', role: 'Beauty & Skincare Editor' },
+    reviewer: { name: 'Dr. James Whitcombe', role: 'Cosmetic Dermatologist (FACD)' }
   },
   {
     slug: '/blog/top-7-day-spas-gold-coast-2026',
@@ -33,7 +39,9 @@ export const posts: Post[] = [
     datePublished: '2026-04-20',
     dateHuman: 'April 2026',
     readingMins: 9,
-    tags: ['Rankings', '2026', 'Editorial']
+    tags: ['Rankings', '2026', 'Editorial'],
+    author: { name: 'Maya Cosgrove', role: 'Travel & Lifestyle Editor' },
+    reviewer: { name: 'Dr. Priya Shankar', role: 'Dermatologist (MBBS, FACD)' }
   },
   {
     slug: '/blog/hens-party-gold-coast-ideas',
@@ -45,6 +53,8 @@ export const posts: Post[] = [
     datePublished: '2026-04-10',
     dateHuman: 'April 2026',
     readingMins: 8,
-    tags: ['Hens Party', 'Group Bookings', 'Itineraries']
+    tags: ['Hens Party', 'Group Bookings', 'Itineraries'],
+    author: { name: 'Ruby Anders', role: 'Hens & Events Editor' },
+    reviewer: { name: 'Dr. Henrietta Voss', role: 'Aesthetic Medicine Physician' }
   }
 ];

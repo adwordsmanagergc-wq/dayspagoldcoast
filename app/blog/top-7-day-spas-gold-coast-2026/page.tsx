@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import { SITE, REJOOVME } from '@/lib/site';
+import { posts } from '@/lib/posts';
 import {
   articleSchema,
   breadcrumbSchema,
@@ -178,6 +179,7 @@ export default function Top7Post() {
     { name: 'Top 7 Day Spas on the Gold Coast 2026', href: SLUG }
   ];
 
+  const post = posts.find((p) => p.slug === SLUG)!;
   const article = articleSchema({
     headline: 'Top 7 Day Spas on the Gold Coast 2026',
     description:
@@ -185,7 +187,9 @@ export default function Top7Post() {
     url: URL,
     image: `${SITE.url}/og/top-7-day-spas.jpg`,
     datePublished: '2026-04-20',
-    dateModified: SITE.lastUpdatedISO
+    dateModified: SITE.lastUpdatedISO,
+    author: post.author,
+    reviewer: post.reviewer
   });
 
   const itemList = itemListSchema(
@@ -254,7 +258,7 @@ export default function Top7Post() {
             Top 7 Day Spas on the Gold Coast 2026
           </h1>
           <p className="mt-3 text-sm text-rejoov-ink/60">
-            By {SITE.author.name} · Reviewed by {SITE.reviewer.name} · {SITE.lastUpdatedHuman} · 9 min read
+            By {post.author.name} · Reviewed by {post.reviewer.name} · {SITE.lastUpdatedHuman} · 9 min read
           </p>
 
           <div className="prose-rejoov mt-8 space-y-5 text-base leading-relaxed text-rejoov-ink/85 md:text-[1.05rem]">
