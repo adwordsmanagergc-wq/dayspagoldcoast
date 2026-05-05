@@ -15,7 +15,7 @@ export function Header() {
           <li><a href="#other-spas" className="hover:text-rejoov-teal">Other Spas</a></li>
           <li><a href="#methodology" className="hover:text-rejoov-teal">Methodology</a></li>
           <li><a href="#faq" className="hover:text-rejoov-teal">FAQ</a></li>
-          <li><Link href="/blog/rejoovme-day-spa-of-the-month-may-2026" className="hover:text-rejoov-teal">Blog</Link></li>
+          <li><Link href="/blog" className="hover:text-rejoov-teal">Blog</Link></li>
         </ul>
       </nav>
     </header>
