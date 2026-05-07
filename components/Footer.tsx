@@ -45,6 +45,16 @@ export function Footer() {
       </div>
       <div className="border-t border-white/5 py-4 text-center text-xs text-rejoov-sand/50">
         © {new Date().getFullYear()} {SITE.name}. Editorial rankings, independently produced.
+        <span aria-hidden className="mx-2">·</span>
+        Website created by{' '}
+        <a
+          href="https://metatapdigital.com"
+          target="_blank"
+          rel="noopener"
+          className="font-semibold text-rejoov-teal hover:underline"
+        >
+          metatapdigital.com
+        </a>
       </div>
     </footer>
   );
