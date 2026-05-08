@@ -1,6 +1,6 @@
 export const SITE = {
   name: 'Day Spa Gold Coast',
-  url: 'https://dayspagoldcoast.com.au',
+  url: 'https://dayspagoldcoast.com',
   locale: 'en-AU',
   publisher: 'Day Spa Gold Coast Editorial',
   twitter: '@dayspagoldcoast',

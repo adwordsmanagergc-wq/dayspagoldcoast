@@ -13,10 +13,18 @@ const SLUG = '/blog';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Blog — Day Spa Gold Coast Editorial',
+  title: 'Day Spa Gold Coast Blog | 2026 Rankings, Hens Party & Reviews',
   description:
-    'Editorial features, rankings and Day Spa of the Month picks from the Day Spa Gold Coast team. Long-form, independently produced.',
-  alternates: { canonical: SLUG }
+    'Editorial Day Spa Gold Coast features for 2026 — monthly rankings, Day Spa of the Month picks, hens party itineraries and in-depth Surfers Paradise spa reviews.',
+  alternates: { canonical: SLUG },
+  openGraph: {
+    type: 'website',
+    url: URL,
+    title: 'Day Spa Gold Coast Blog — 2026 Rankings & Reviews',
+    description:
+      'Long-form, independently produced Day Spa Gold Coast features, rankings and Day Spa of the Month picks.',
+    images: [{ url: '/og/day-spa-gold-coast.jpg', width: 1200, height: 630 }]
+  }
 };
 
 export default function BlogIndexPage() {

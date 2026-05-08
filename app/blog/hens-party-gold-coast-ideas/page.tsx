@@ -18,9 +18,9 @@ const SLUG = '/blog/hens-party-gold-coast-ideas';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Hens Party Gold Coast Ideas 2026: Day Spa, Brunch, Beach & More',
+  title: 'Hens Party Gold Coast Ideas 2026 — Day Spa, Brunch & More',
   description:
-    'The best hens party Gold Coast ideas for 2026. RejoovMe leads our day spa pick — plus bottomless brunch, cocktail classes, learn-to-surf, hinterland wineries and yacht charters.',
+    'The best Hens Party Gold Coast ideas for 2026: a 20-guest RejoovMe day spa package, bottomless brunch, cocktail classes, surf lessons and hinterland wineries.',
   alternates: { canonical: SLUG },
   openGraph: {
     type: 'article',

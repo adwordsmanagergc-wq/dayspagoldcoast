@@ -18,9 +18,9 @@ const SLUG = '/blog/rejoovme-day-spa-of-the-month-may-2026';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'RejoovMe — Day Spa of the Month, May 2026 (Surfers Paradise)',
+  title: 'RejoovMe Day Spa Gold Coast Review — May 2026 Pick',
   description:
-    'A full feature on RejoovMe Skin Clinic & Day Spa — magnesium spa, steam room, organic facials and our pick for the best Day Spa Gold Coast experience in May 2026.',
+    'Full RejoovMe Skin Clinic & Day Spa review: magnesium spa, steam room, organic facials and free Surfers Paradise parking — our 2026 Day Spa Gold Coast pick.',
   alternates: { canonical: SLUG },
   openGraph: {
     type: 'article',

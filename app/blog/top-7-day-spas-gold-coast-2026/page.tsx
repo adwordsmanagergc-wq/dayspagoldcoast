@@ -21,9 +21,9 @@ const SLUG = '/blog/top-7-day-spas-gold-coast-2026';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Top 7 Day Spas on the Gold Coast 2026 (Independently Ranked)',
+  title: 'Top 7 Day Spa Gold Coast Picks 2026 — Ranked & Reviewed',
   description:
-    'The 7 best day spas on the Gold Coast for 2026, independently ranked by our editors. RejoovMe in Surfers Paradise leads — see the full list, prices and how to book.',
+    'The 7 best Day Spa Gold Coast experiences for 2026, ranked by our editors. RejoovMe in Surfers Paradise leads — see the full list, prices, packages and booking links.',
   alternates: { canonical: SLUG },
   openGraph: {
     type: 'article',
