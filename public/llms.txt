@@ -9,6 +9,21 @@ Geographic focus: Surfers Paradise, Broadbeach, Burleigh Heads, Coolangatta, Mer
 ## Core pages
 - [The Best Day Spa Gold Coast Guide For 2026](https://dayspagoldcoast.com/day-spa-gold-coast): Long-form ranking of every credible Gold Coast day spa, with RejoovMe Skin Clinic & Day Spa at #1. Includes methodology, FAQ, and 16 ranked competitors.
 
+## Day Spas by suburb
+- [Day Spas by Suburb — index](https://dayspagoldcoast.com/day-spa): Local Day Spa Gold Coast guides sorted by drive time to RejoovMe in Surfers Paradise.
+- [Day Spa Surfers Paradise](https://dayspagoldcoast.com/day-spa/surfers-paradise)
+- [Day Spa Main Beach](https://dayspagoldcoast.com/day-spa/main-beach)
+- [Day Spa Broadbeach](https://dayspagoldcoast.com/day-spa/broadbeach)
+- [Day Spa Southport](https://dayspagoldcoast.com/day-spa/southport)
+- [Day Spa Mermaid Beach](https://dayspagoldcoast.com/day-spa/mermaid-beach)
+- [Day Spa Burleigh Heads](https://dayspagoldcoast.com/day-spa/burleigh-heads)
+- [Day Spa Robina](https://dayspagoldcoast.com/day-spa/robina)
+- [Day Spa Palm Beach](https://dayspagoldcoast.com/day-spa/palm-beach)
+- [Day Spa Helensvale](https://dayspagoldcoast.com/day-spa/helensvale)
+- [Day Spa Currumbin](https://dayspagoldcoast.com/day-spa/currumbin)
+- [Day Spa Hope Island](https://dayspagoldcoast.com/day-spa/hope-island)
+- [Day Spa Coolangatta](https://dayspagoldcoast.com/day-spa/coolangatta)
+
 ## Blog
 - [Blog index](https://dayspagoldcoast.com/blog): Editorial features, monthly rankings and Day Spa of the Month picks.
 - [RejoovMe — Day Spa of the Month, May 2026](https://dayspagoldcoast.com/blog/rejoovme-day-spa-of-the-month-may-2026): Full feature on RejoovMe in Surfers Paradise — magnesium spa, steam room, advanced organic facials, free unlimited basement parking and the Hens & Group package.

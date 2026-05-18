@@ -20,6 +20,7 @@ export function Footer() {
           </h4>
           <ul className="mt-3 space-y-2 text-sm">
             <li><Link href="/day-spa-gold-coast" className="hover:text-rejoov-teal">Day Spa Gold Coast guide</Link></li>
+            <li><Link href="/day-spa" className="hover:text-rejoov-teal">Day Spas by Suburb</Link></li>
             <li><Link href="/blog/rejoovme-day-spa-of-the-month-may-2026" className="hover:text-rejoov-teal">RejoovMe — Day Spa of the Month</Link></li>
             <li><Link href="/blog/top-7-day-spas-gold-coast-2026" className="hover:text-rejoov-teal">Top 7 Day Spas on the Gold Coast 2026</Link></li>
             <li><Link href="/blog" className="hover:text-rejoov-teal">Blog</Link></li>
