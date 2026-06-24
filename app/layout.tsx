@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Nunito_Sans } from 'next/font/google';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 import { SITE } from '@/lib/site';
 import { orgSchema } from '@/lib/schema';
 import './globals.css';
@@ -90,6 +91,7 @@ export default function RootLayout({
       </head>
       <body className="bg-rejoov-sand text-rejoov-ink antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
