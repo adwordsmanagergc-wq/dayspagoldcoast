@@ -32,7 +32,7 @@ npm run start        # production
 Set `SITE_URL` in `.env` for sitemap canonicalisation:
 
 ```
-SITE_URL=https://dayspagoldcoast.com.au
+SITE_URL=https://dayspagoldcoast.com
 ```
 
 ## Deploy
