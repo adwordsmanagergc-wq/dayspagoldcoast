@@ -62,3 +62,42 @@ h1, h2, h3, h4 {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* ---- October 2026 redesign additions ---- */
+
+:root {
+  --rejoov-deep: #0B6B65;
+  --rejoov-night: #0F2A2B;
+}
+
+::selection { background: rgba(79,209,197,0.35); }
+
+:focus-visible {
+  outline: 2px solid var(--rejoov-deep);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Anchor targets clear the sticky header. */
+[id] { scroll-margin-top: 5.5rem; }
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rejoov-deep);
+}
+
+.prose-rejoov a { color: var(--rejoov-deep); text-decoration: underline; text-underline-offset: 3px; }
+.prose-rejoov strong { color: var(--rejoov-ink); }
+
+.grain {
+  background-image: radial-gradient(rgba(15,42,43,0.05) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Hide the native disclosure triangle on custom <summary> elements. */
+summary::-webkit-details-marker { display: none; }
+
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }

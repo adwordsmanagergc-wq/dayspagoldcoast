@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/components/JsonLd';
 import { SITE } from '@/lib/site';
 import { posts } from '@/lib/posts';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -13,7 +13,7 @@ const SLUG = '/blog';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Day Spa Gold Coast Blog | 2026 Rankings, Hens Party & Reviews',
+  title: { absolute: 'Day Spa Gold Coast Blog: Rankings, Packages & Hens Guides (2026)' },
   description:
     'Editorial Day Spa Gold Coast features for 2026 — monthly rankings, Day Spa of the Month picks, hens party itineraries and in-depth Surfers Paradise spa reviews.',
   alternates: { canonical: SLUG },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function BlogIndexPage() {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
+    { name: 'Day Spa Gold Coast', href: '/day-spa-gold-coast' },
     { name: 'Blog', href: SLUG }
   ];
 
@@ -53,26 +53,16 @@ export default function BlogIndexPage() {
 
   return (
     <>
-      <Script
-        id="ld-breadcrumb-blog"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <Script
-        id="ld-blog"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogList) }}
-      />
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={blogList} />
 
       <Header />
-      <main className="bg-rejoov-glow">
+      <main id="main" className="bg-rejoov-glow">
         <Breadcrumbs items={breadcrumbs} />
 
         <section className="mx-auto max-w-5xl px-5 pb-16 pt-10 md:pb-20 md:pt-14">
           <header className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rejoov-teal">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rejoov-deep">
               Editorial
             </p>
             <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
@@ -102,7 +92,7 @@ export default function BlogIndexPage() {
                   </div>
                   <div className="flex flex-1 flex-col p-5 md:p-6">
                     <div className="flex flex-wrap items-center gap-2 text-xs text-rejoov-ink/55">
-                      <span className="font-semibold uppercase tracking-wider text-rejoov-teal">
+                      <span className="font-semibold uppercase tracking-wider text-rejoov-deep">
                         {p.tags[0]}
                       </span>
                       <span aria-hidden>·</span>
@@ -110,13 +100,13 @@ export default function BlogIndexPage() {
                       <span aria-hidden>·</span>
                       <span>{p.readingMins} min read</span>
                     </div>
-                    <h2 className="mt-3 font-display text-xl font-semibold leading-snug text-rejoov-ink group-hover:text-rejoov-teal md:text-2xl">
+                    <h2 className="mt-3 font-display text-xl font-semibold leading-snug text-rejoov-ink group-hover:text-rejoov-deep md:text-2xl">
                       {p.title}
                     </h2>
                     <p className="mt-2 text-sm leading-relaxed text-rejoov-ink/75 md:text-base">
                       {p.excerpt}
                     </p>
-                    <span className="mt-4 inline-flex items-center text-sm font-semibold text-rejoov-teal">
+                    <span className="mt-4 inline-flex items-center text-sm font-semibold text-rejoov-deep">
                       Read article →
                     </span>
                   </div>
@@ -127,7 +117,7 @@ export default function BlogIndexPage() {
 
           <p className="mt-12 text-sm text-rejoov-ink/60">
             Looking for the full guide? Read{' '}
-            <Link href="/day-spa-gold-coast" className="font-semibold text-rejoov-teal underline">
+            <Link href="/day-spa-gold-coast" className="font-semibold text-rejoov-deep underline">
               The Best Day Spa Gold Coast Guide For 2026
             </Link>
             .

@@ -1,56 +1,69 @@
 import Image from 'next/image';
 import { SITE } from '@/lib/site';
+import { competitors } from '@/lib/data';
+
+function Initials({ name, tone }: { name: string; tone: string }) {
+  const ini = name.replace(/^Dr\.?\s+/, '').split(' ').map((w) => w[0]).slice(0, 2).join('');
+  return (
+    <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold ring-2 ring-white/80 ${tone}`} aria-hidden>
+      {ini}
+    </span>
+  );
+}
 
 export function Hero({ readingMins }: { readingMins: number }) {
+  const total = competitors.length + 1;
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden bg-rejoov-night">
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/hero/gold-coast-hero.jpg"
-          alt="Gold Coast skyline at golden hour — best Day Spa Gold Coast 2026 guide"
+          alt="Gold Coast skyline and beach at golden hour — day spa Gold Coast guide"
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-rejoov-sand" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_30%,rgba(0,0,0,0.45)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-rejoov-night/70 via-rejoov-night/55 to-rejoov-night/95" />
       </div>
-      <div className="mx-auto max-w-5xl px-5 pt-20 pb-28 text-center md:pt-28 md:pb-32">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-rejoov-gold drop-shadow-sm">
-          Independently reviewed · {SITE.lastUpdatedHuman} · Locally curated
+
+      <div className="mx-auto max-w-5xl px-5 pb-28 pt-16 text-center md:pb-36 md:pt-24">
+        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-rejoov-gold ring-1 ring-white/15 backdrop-blur">
+          <span className="h-1.5 w-1.5 rounded-full bg-rejoov-neon" aria-hidden />
+          {SITE.lastUpdatedHuman} · {total} spas tested
         </p>
-        <h1 className="mx-auto max-w-4xl font-display text-3xl font-bold leading-[1.1] text-white sm:text-4xl md:text-6xl [text-shadow:0_2px_18px_rgba(0,0,0,0.55),0_1px_3px_rgba(0,0,0,0.6)]">
-          The Best Day Spa Gold Coast Guide For 2026
+        <h1 className="mx-auto mt-6 max-w-4xl font-display text-[2.15rem] font-bold leading-[1.08] text-white sm:text-5xl md:text-[4rem]">
+          Day Spa Gold Coast: The {total} Best Day Spas, Tested &amp; Ranked
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base text-white sm:text-lg md:text-xl [text-shadow:0_1px_8px_rgba(0,0,0,0.7)]">
-          Salt air, hinterland calm and Surfers Paradise polish — our editors ranked every Day Spa Gold Coast experience worth your weekend.
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
+          Salt air, hinterland calm and Surfers Paradise polish. We booked, paid for and reviewed every credible day spa from Coolangatta to Tamborine Mountain — here is where to go in spring {SITE.year}.
         </p>
-        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rejoov-gold drop-shadow [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
-              ⭐ Day Spa of the Month
-            </span>
-            <a
-              href="#day-spa-of-the-month"
-              className="rejoov-pill animate-pulseRing !px-4 !py-2.5 !text-sm md:!px-7 md:!py-4 md:!text-base"
-            >
-              <span className="md:hidden">Book RejoovMe</span>
-              <span className="hidden md:inline">Book the Day Spa of the Month — RejoovMe</span>
-            </a>
-          </div>
+
+        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href="#day-spa-of-the-month" className="rejoov-pill animate-pulseRing">
+            See the #1 day spa
+          </a>
           <a
-            href="#methodology"
-            className="rounded-full border border-white/60 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 md:px-6 md:py-3"
+            href="#rankings"
+            className="rounded-full border border-white/40 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
           >
-            How we ranked
+            Compare all {total} spas
           </a>
         </div>
-        <p className="mt-6 text-xs text-white/80">
-          By {SITE.author.name} · Reviewed by {SITE.reviewer.name} · {readingMins} min read
-        </p>
+
+        <div className="mt-9 flex items-center justify-center gap-3 text-left text-xs text-white/80">
+          <div className="flex -space-x-2">
+            <Initials name={SITE.author.name} tone="bg-rejoov-teal text-rejoov-night" />
+            <Initials name={SITE.reviewer.name} tone="bg-rejoov-gold text-rejoov-night" />
+          </div>
+          <p>
+            By <strong className="text-white">{SITE.author.name}</strong> · Reviewed by{' '}
+            <strong className="text-white">{SITE.reviewer.name}</strong>
+            <br />
+            <time dateTime={SITE.lastUpdatedISO}>{SITE.lastUpdatedHuman}</time> · {readingMins} min read
+          </p>
+        </div>
       </div>
-      <div className="wave-divider" aria-hidden="true" />
     </section>
   );
 }

@@ -7,6 +7,7 @@ export type Post = {
   cover: string;
   coverAlt: string;
   datePublished: string;
+  dateModified?: string;
   dateHuman: string;
   readingMins: number;
   tags: string[];
@@ -15,6 +16,21 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+  {
+    slug: '/blog/day-spa-packages-gold-coast',
+    title: 'Day Spa Packages Gold Coast: Prices & What’s Included (October 2026)',
+    excerpt:
+      'What a Gold Coast day spa package really costs in 2026, what should be included, and our picks for couples, groups, a full day and a quick reset.',
+    cover: '/rejoovmeimage3.jpg',
+    coverAlt: 'Magnesium spa at RejoovMe — day spa packages Gold Coast',
+    datePublished: '2026-10-01',
+    dateModified: '2026-10-01',
+    dateHuman: 'October 2026',
+    readingMins: 7,
+    tags: ['Packages', 'Prices', 'Guides'],
+    author: { name: 'Eliza Hartwell', role: 'Senior Wellness Editor' },
+    reviewer: { name: 'Dr. Naomi Pillai', role: 'Dermal Clinician (BHSc)' }
+  },
   {
     slug: '/blog/rejoovme-day-spa-of-the-month-may-2026',
     title: 'RejoovMe — Day Spa of the Month, May 2026',

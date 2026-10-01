@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/components/JsonLd';
 import { SITE, REJOOVME } from '@/lib/site';
 import { posts } from '@/lib/posts';
 import {
@@ -18,7 +18,7 @@ const SLUG = '/blog/hens-party-gold-coast-ideas';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Hens Party Gold Coast Ideas 2026 — Day Spa, Brunch & More',
+  title: { absolute: 'Hens Party Gold Coast Ideas 2026 — Day Spa, Brunch & More' },
   description:
     'The best Hens Party Gold Coast ideas for 2026: a 20-guest RejoovMe day spa package, bottomless brunch, cocktail classes, surf lessons and hinterland wineries.',
   alternates: { canonical: SLUG },
@@ -166,7 +166,7 @@ const ideas: Idea[] = [
 
 export default function HensPartyPost() {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
+    { name: 'Day Spa Gold Coast', href: '/day-spa-gold-coast' },
     { name: 'Blog', href: '/blog' },
     { name: 'Hens Party Gold Coast Ideas 2026', href: SLUG }
   ];
@@ -191,21 +191,17 @@ export default function HensPartyPost() {
 
   return (
     <>
-      <Script id="ld-article-hens" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
-      <Script id="ld-breadcrumb-hens" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <Script id="ld-faq-hens" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
-      <Script id="ld-localbusiness-hens" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeLocalBusinessSchema) }} />
+      <JsonLd data={article} />
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={faq} />
+      <JsonLd data={rejoovmeLocalBusinessSchema} />
 
       <Header />
-      <main className="bg-rejoov-glow">
+      <main id="main" className="bg-rejoov-glow">
         <Breadcrumbs items={breadcrumbs} />
 
         <article className="mx-auto max-w-3xl px-5 py-10 md:py-14">
-          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-teal">
+          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-deep">
             🌴 2026 Hens Party Guide
           </p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
@@ -231,7 +227,7 @@ export default function HensPartyPost() {
               The Gold Coast is built for a hens weekend. Within a forty-minute radius you can move from a twenty-guest day spa group booking in Surfers Paradise, to a long bottomless brunch in Broadbeach, to a beginner surf lesson at Currumbin, to a wine-tasting day-trip up Tamborine Mountain — and finish the weekend with sunrise yoga on the Burleigh headland.
             </p>
             <p>
-              Below are our eight favourite hens party Gold Coast ideas for 2026, ranked editorially. <a href={REJOOVME.url} rel="noopener" className="text-rejoov-teal underline font-semibold">RejoovMe Skin Clinic &amp; Day Spa</a> opens the list because it is the only venue we have tested that runs hens groups of up to twenty as a properly choreographed experience — not a stack of back-to-back individual bookings.
+              Below are our eight favourite hens party Gold Coast ideas for 2026, ranked editorially. <a href={REJOOVME.url} rel="noopener" className="text-rejoov-deep underline font-semibold">RejoovMe Skin Clinic &amp; Day Spa</a> opens the list because it is the only venue we have tested that runs hens groups of up to twenty as a properly choreographed experience — not a stack of back-to-back individual bookings.
             </p>
             <p className="text-sm text-rejoov-ink/60">
               Jump to: <a className="underline" href="#idea-1">#1 Day Spa</a> · <a className="underline" href="#idea-2">#2 Brunch</a> · <a className="underline" href="#idea-3">#3 Cocktail class</a> · <a className="underline" href="#idea-4">#4 Surf lesson</a> · <a className="underline" href="#idea-5">#5 Hinterland wineries</a> · <a className="underline" href="#idea-6">#6 Yacht charter</a> · <a className="underline" href="#idea-7">#7 Private chef dinner</a> · <a className="underline" href="#idea-8">#8 Beach yoga</a> · <a className="underline" href="#faq">FAQ</a>
@@ -253,7 +249,7 @@ export default function HensPartyPost() {
                   <span
                     className={
                       it.highlight
-                        ? 'text-sm font-bold uppercase tracking-wide text-rejoov-teal'
+                        ? 'text-sm font-bold uppercase tracking-wide text-rejoov-deep'
                         : 'text-xs font-semibold text-rejoov-ink/40'
                     }
                   >
@@ -283,7 +279,7 @@ export default function HensPartyPost() {
                       className={
                         it.cta.pill
                           ? 'rejoov-pill animate-pulseRing !px-5 !py-2.5 !text-sm md:!px-6 md:!py-3'
-                          : 'inline-flex items-center justify-center rounded-full border border-rejoov-ink/15 bg-white px-4 py-2 text-xs font-semibold text-rejoov-ink/70 hover:border-rejoov-teal hover:text-rejoov-teal'
+                          : 'inline-flex items-center justify-center rounded-full border border-rejoov-ink/15 bg-white px-4 py-2 text-xs font-semibold text-rejoov-ink/70 hover:border-rejoov-teal hover:text-rejoov-deep'
                       }
                     >
                       {it.cta.label}
@@ -317,7 +313,7 @@ export default function HensPartyPost() {
                 <details key={f.q} className="group p-5 open:bg-rejoov-teal/5">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-base font-semibold text-rejoov-ink md:text-lg">
                     <span>{f.q}</span>
-                    <span aria-hidden className="mt-1 select-none text-rejoov-teal transition group-open:rotate-45">
+                    <span aria-hidden className="mt-1 select-none text-rejoov-deep transition group-open:rotate-45">
                       +
                     </span>
                   </summary>
@@ -344,7 +340,7 @@ export default function HensPartyPost() {
               </a>
               <Link
                 href="/day-spa-gold-coast"
-                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10"
+                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-deep hover:bg-rejoov-teal/10"
               >
                 Read the Day Spa Gold Coast guide →
               </Link>

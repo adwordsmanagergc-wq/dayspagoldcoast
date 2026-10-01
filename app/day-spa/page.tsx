@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/components/JsonLd';
 import { SITE } from '@/lib/site';
 import { suburbs } from '@/lib/suburbs';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -12,7 +12,7 @@ const SLUG = '/day-spa';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Day Spa by Suburb — Gold Coast 2026 Local Guides',
+  title: { absolute: 'Day Spa by Suburb: Gold Coast Local Day Spa Guides (2026)' },
   description:
     'Day Spa Gold Coast guides for every major suburb — Surfers Paradise, Broadbeach, Burleigh Heads, Mermaid Beach, Palm Beach, Coolangatta and more. Distance, local context, booking.',
   alternates: { canonical: SLUG },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function SuburbIndexPage() {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
+    { name: 'Day Spa Gold Coast', href: '/day-spa-gold-coast' },
     { name: 'Day Spas by Suburb', href: SLUG }
   ];
   const breadcrumb = breadcrumbSchema(
@@ -39,15 +39,14 @@ export default function SuburbIndexPage() {
 
   return (
     <>
-      <Script id="ld-breadcrumb-suburbs" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <JsonLd data={breadcrumb} />
 
       <Header />
-      <main className="bg-rejoov-glow">
+      <main id="main" className="bg-rejoov-glow">
         <Breadcrumbs items={breadcrumbs} />
 
         <section className="mx-auto max-w-5xl px-5 pb-16 pt-10 md:pb-20 md:pt-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rejoov-teal">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rejoov-deep">
             Local Guides
           </p>
           <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
@@ -66,7 +65,7 @@ export default function SuburbIndexPage() {
                 >
                   <div>
                     <div className="flex items-baseline gap-2">
-                      <h2 className="font-display text-lg font-semibold text-rejoov-ink group-hover:text-rejoov-teal md:text-xl">
+                      <h2 className="font-display text-lg font-semibold text-rejoov-ink group-hover:text-rejoov-deep md:text-xl">
                         Day Spa {s.name}
                       </h2>
                       <span className="text-xs text-rejoov-ink/45">{s.postcode}</span>
@@ -74,10 +73,10 @@ export default function SuburbIndexPage() {
                     <p className="mt-2 text-sm leading-relaxed text-rejoov-ink/70">{s.vibe}</p>
                   </div>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="rounded-full bg-rejoov-teal/10 px-3 py-1 text-xs font-semibold text-rejoov-teal">
+                    <span className="rounded-full bg-rejoov-teal/10 px-3 py-1 text-xs font-semibold text-rejoov-deep">
                       {s.travelMins === 0 ? 'Right here' : `${s.travelMins} min to RejoovMe`}
                     </span>
-                    <span className="text-sm font-semibold text-rejoov-teal">Read →</span>
+                    <span className="text-sm font-semibold text-rejoov-deep">Read →</span>
                   </div>
                 </Link>
               </li>
@@ -86,7 +85,7 @@ export default function SuburbIndexPage() {
 
           <p className="mt-12 text-sm text-rejoov-ink/65">
             Looking for the full ranking? Read{' '}
-            <Link href="/day-spa-gold-coast" className="font-semibold text-rejoov-teal underline">
+            <Link href="/day-spa-gold-coast" className="font-semibold text-rejoov-deep underline">
               The Best Day Spa Gold Coast Guide For 2026
             </Link>
             .

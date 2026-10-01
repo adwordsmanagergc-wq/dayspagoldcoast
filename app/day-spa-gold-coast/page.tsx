@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { SITE, REJOOVME } from '@/lib/site';
 import { competitors, faqs } from '@/lib/data';
 import {
@@ -10,38 +9,51 @@ import {
   rejoovmeLocalBusinessSchema,
   rejoovmeReviewSchema
 } from '@/lib/schema';
+import { JsonLd } from '@/components/JsonLd';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { QuickAnswer } from '@/components/QuickAnswer';
 import { Intro } from '@/components/Intro';
+import { ComparisonTable } from '@/components/ComparisonTable';
 import { RejoovMeFeature } from '@/components/RejoovMeFeature';
+import { BestFor } from '@/components/BestFor';
 import { CompetitorList } from '@/components/CompetitorList';
+import { PriceGuide, ChoosingGuide } from '@/components/PriceGuide';
+import { SuburbGrid } from '@/components/SuburbGrid';
 import { Methodology } from '@/components/Methodology';
 import { FAQ } from '@/components/FAQ';
 import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
+import { MobileStickyCTA } from '@/components/MobileStickyCTA';
 
-const URL = `${SITE.url}/day-spa-gold-coast`;
+const PATH = '/day-spa-gold-coast';
+const URL = `${SITE.url}${PATH}`;
+const TOTAL = competitors.length + 1;
+const TITLE = `Day Spa Gold Coast: ${TOTAL} Best Day Spas Ranked (${SITE.featureMonth})`;
+const DESCRIPTION = `The best day spa Gold Coast guide, updated ${SITE.featureMonth}. ${TOTAL} spas tested and ranked — prices, packages, couples & hens picks. RejoovMe in Surfers Paradise is #1.`;
 
 export const metadata: Metadata = {
-  title: "Day Spa Gold Coast | 2026's Best Day Spas Ranked & Reviewed",
-  description:
-    'Discover the best Day Spa Gold Coast experiences for 2026. RejoovMe leads our expert-curated rankings of luxury spas in Surfers Paradise & beyond.',
-  alternates: { canonical: '/day-spa-gold-coast' }
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    type: 'article',
+    url: URL,
+    title: TITLE,
+    description: DESCRIPTION,
+    publishedTime: '2026-01-15',
+    modifiedTime: SITE.lastUpdatedISO,
+    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: TITLE }]
+  },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [SITE.ogImage] }
 };
 
 export default function DaySpaGoldCoastPage() {
-  const breadcrumbs = [
-    { name: 'Home', href: '/' },
-    { name: 'Day Spa Gold Coast', href: '/day-spa-gold-coast' }
-  ];
-
   const article = articleSchema({
-    headline: 'The Best Day Spa Gold Coast Guide For 2026',
-    description:
-      'Independent 2026 rankings of the best Day Spa Gold Coast experiences, led by RejoovMe Skin Clinic & Day Spa in Surfers Paradise.',
+    headline: `Day Spa Gold Coast: The ${TOTAL} Best Day Spas, Tested & Ranked`,
+    description: DESCRIPTION,
     url: URL,
-    image: `${SITE.url}/og/day-spa-gold-coast.jpg`,
+    image: `${SITE.url}${SITE.ogImage}`,
     datePublished: '2026-01-15',
     dateModified: SITE.lastUpdatedISO
   });
@@ -51,8 +63,7 @@ export default function DaySpaGoldCoastPage() {
       position: 1,
       name: REJOOVME.name,
       url: REJOOVME.url,
-      description:
-        'Day Spa of the Month — May 2026. Magnesium spa, steam room, full skin clinic capability in Surfers Paradise.'
+      description: `Day Spa of the Month — ${SITE.featureMonth}. Magnesium spa, steam room and full skin clinic capability in Surfers Paradise.`
     },
     ...competitors.map((c, i) => ({
       position: i + 2,
@@ -62,65 +73,37 @@ export default function DaySpaGoldCoastPage() {
     }))
   ]);
 
-  const breadcrumb = breadcrumbSchema(
-    breadcrumbs.map((b) => ({ name: b.name, url: `${SITE.url}${b.href}` }))
-  );
-
-  const faq = faqSchema(faqs.map((f) => ({ q: f.q, a: f.a })));
+  const breadcrumb = breadcrumbSchema([{ name: 'Day Spa Gold Coast', url: URL }]);
 
   return (
     <>
-      <Script
-        id="ld-article"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
-      />
-      <Script
-        id="ld-itemlist"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
-      />
-      <Script
-        id="ld-localbusiness"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeLocalBusinessSchema) }}
-      />
-      <Script
-        id="ld-review"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeReviewSchema) }}
-      />
-      <Script
-        id="ld-breadcrumb"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <Script
-        id="ld-faq"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
-      />
+      <JsonLd data={article} />
+      <JsonLd data={itemList} />
+      <JsonLd data={rejoovmeLocalBusinessSchema} />
+      <JsonLd data={rejoovmeReviewSchema} />
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={faqSchema(faqs)} />
 
       <Header />
-      <main>
+      <main id="main">
         <article>
-          <Hero readingMins={12} />
-          <Breadcrumbs items={breadcrumbs} />
+          <Hero readingMins={14} />
+          <QuickAnswer />
           <Intro />
+          <ComparisonTable />
           <RejoovMeFeature />
+          <BestFor />
           <CompetitorList />
+          <PriceGuide />
+          <ChoosingGuide />
+          <SuburbGrid />
           <Methodology />
           <FAQ />
           <FinalCTA />
         </article>
       </main>
       <Footer />
+      <MobileStickyCTA />
     </>
   );
 }

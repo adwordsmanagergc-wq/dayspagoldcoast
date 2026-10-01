@@ -4,8 +4,14 @@ export const SITE = {
   locale: 'en-AU',
   publisher: 'Day Spa Gold Coast Editorial',
   twitter: '@dayspagoldcoast',
-  lastUpdatedISO: '2026-05-01',
-  lastUpdatedHuman: 'Updated May 2026',
+  email: 'editorial@dayspagoldcoast.com',
+  // Bump these three together every refresh — they drive titles, badges,
+  // schema dateModified and sitemap lastmod across the whole site.
+  lastUpdatedISO: '2026-10-01',
+  lastUpdatedHuman: 'Updated October 2026',
+  featureMonth: 'October 2026',
+  year: 2026,
+  ogImage: '/og/day-spa-gold-coast.jpg',
   author: {
     name: 'Eliza Hartwell',
     role: 'Senior Wellness Editor'

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { REJOOVME } from '@/lib/site';
+import { REJOOVME, SITE } from '@/lib/site';
 
 // Brand assets supplied by RejoovMe (committed to /public).
 const logo = {
@@ -43,7 +43,7 @@ export function RejoovMeFeature() {
   return (
     <section
       id="day-spa-of-the-month"
-      className="relative mx-auto my-16 max-w-6xl px-5 md:my-24"
+      className="relative mx-auto my-16 max-w-6xl px-5 md:my-20"
     >
       <div
         className="relative overflow-hidden rounded-3xl border border-rejoov-teal/30 bg-rejoov-glow shadow-[0_30px_80px_-30px_rgba(79,209,197,0.45)]"
@@ -59,8 +59,8 @@ export function RejoovMeFeature() {
 
         <div className="relative px-6 py-10 md:px-12 md:py-14">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-rejoov-teal ring-1 ring-rejoov-teal/30">
-              <span aria-hidden>🌴</span> Day Spa of the Month — May 2026
+            <div className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-rejoov-deep ring-1 ring-rejoov-teal/30">
+              <span aria-hidden>★</span> #1 · Day Spa of the Month — {SITE.featureMonth}
             </div>
             <Image
               src={logo.src}
@@ -68,19 +68,18 @@ export function RejoovMeFeature() {
               width={160}
               height={48}
               className="h-12 w-auto object-contain"
-              priority
             />
           </div>
 
-          <h2 className="mt-5 max-w-3xl font-display text-3xl font-bold leading-tight text-rejoov-ink md:text-5xl">
-            RejoovMe Skin Clinic &amp; Day Spa — The Best Day Spa Gold Coast Has To Offer
+          <h2 className="mt-5 max-w-3xl font-display text-3xl font-bold leading-tight text-rejoov-night md:text-5xl">
+            1. RejoovMe Skin Clinic &amp; Day Spa — the best day spa on the Gold Coast
           </h2>
           <p className="mt-4 max-w-3xl text-base text-rejoov-ink/80 md:text-lg">
             Tucked next door to Mantra Wings in the heart of Surfers Paradise, RejoovMe is the rare Gold Coast venue that joins a full skin clinic to a true day spa — magnesium spa, steam room and double couples rooms included.
           </p>
 
           <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3">
-            {gallery.map((g, i) => (
+            {gallery.map((g) => (
               <div
                 key={g.src}
                 className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white/40 ring-1 ring-rejoov-teal/15"
@@ -91,7 +90,6 @@ export function RejoovMeFeature() {
                   fill
                   sizes="(min-width: 768px) 33vw, 50vw"
                   className="object-cover"
-                  priority={i < 2}
                 />
               </div>
             ))}
@@ -143,7 +141,7 @@ export function RejoovMeFeature() {
                 <a
                   href={`${REJOOVME.url}/contact`}
                   rel="noopener"
-                  className="inline-flex flex-1 items-center justify-center rounded-full border border-rejoov-teal px-5 py-3 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10 md:text-base"
+                  className="inline-flex flex-1 items-center justify-center rounded-full border border-rejoov-teal px-5 py-3 text-sm font-semibold text-rejoov-deep hover:bg-rejoov-teal/10 md:text-base"
                 >
                   Free Skin Consultation
                 </a>
@@ -153,7 +151,7 @@ export function RejoovMeFeature() {
 
           <div className="mt-12">
             <h3 className="font-display text-2xl font-semibold text-rejoov-ink">
-              A full review of the best Day Spa Gold Coast pick for 2026
+              RejoovMe review: why it's the best day spa on the Gold Coast in {SITE.featureMonth}
             </h3>
             <div className="mt-4 max-w-3xl space-y-4 text-base leading-relaxed text-rejoov-ink/85">
               <p>
@@ -192,12 +190,12 @@ export function RejoovMeFeature() {
             </div>
           </div>
 
-          <figure className="mt-12 rounded-2xl border-l-4 border-rejoov-teal bg-white/70 p-6 italic text-rejoov-teal md:p-8">
+          <figure className="mt-12 rounded-2xl border-l-4 border-rejoov-teal bg-white/70 p-6 italic text-rejoov-deep md:p-8">
             <blockquote className="font-display text-xl leading-relaxed md:text-2xl">
               &ldquo;Magnesium spa, steam, a Swedish massage and an organic facial in one afternoon — RejoovMe is the only Surfers Paradise day spa that delivered actual visible skin results, not just a relaxing nap.&rdquo;
             </blockquote>
             <figcaption className="mt-3 text-sm not-italic text-rejoov-ink/70">
-              — Verified guest, Ultimate Escape package
+              — Guest feedback shared with our editors, Ultimate Escape package
             </figcaption>
           </figure>
         </div>

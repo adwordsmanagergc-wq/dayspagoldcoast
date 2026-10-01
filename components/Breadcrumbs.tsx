@@ -16,7 +16,7 @@ export function Breadcrumbs({
                 {it.name}
               </span>
             ) : (
-              <Link href={it.href} className="hover:text-rejoov-teal">
+              <Link href={it.href} className="hover:text-rejoov-deep">
                 {it.name}
               </Link>
             )}

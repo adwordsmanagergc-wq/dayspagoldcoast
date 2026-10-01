@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/components/JsonLd';
 import { SITE, REJOOVME } from '@/lib/site';
 import { posts } from '@/lib/posts';
 import {
@@ -18,7 +18,7 @@ const SLUG = '/blog/rejoovme-day-spa-of-the-month-may-2026';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'RejoovMe Day Spa Gold Coast Review — May 2026 Pick',
+  title: { absolute: 'RejoovMe Day Spa Gold Coast Review — May 2026 Pick' },
   description:
     'Full RejoovMe Skin Clinic & Day Spa review: magnesium spa, steam room, organic facials and free Surfers Paradise parking — our 2026 Day Spa Gold Coast pick.',
   alternates: { canonical: SLUG },
@@ -46,7 +46,7 @@ const gallery = [
 
 export default function RejoovMeFeaturePost() {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
+    { name: 'Day Spa Gold Coast', href: '/day-spa-gold-coast' },
     { name: 'Blog', href: '/blog' },
     { name: 'RejoovMe — Day Spa of the Month, May 2026', href: SLUG }
   ];
@@ -70,37 +70,17 @@ export default function RejoovMeFeaturePost() {
 
   return (
     <>
-      <Script
-        id="ld-article-feature"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
-      />
-      <Script
-        id="ld-review-feature"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeReviewSchema) }}
-      />
-      <Script
-        id="ld-localbusiness-feature"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeLocalBusinessSchema) }}
-      />
-      <Script
-        id="ld-breadcrumb-feature"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
+      <JsonLd data={article} />
+      <JsonLd data={rejoovmeReviewSchema} />
+      <JsonLd data={rejoovmeLocalBusinessSchema} />
+      <JsonLd data={breadcrumb} />
 
       <Header />
-      <main className="bg-rejoov-glow">
+      <main id="main" className="bg-rejoov-glow">
         <Breadcrumbs items={breadcrumbs} />
 
         <article className="mx-auto max-w-3xl px-5 py-12 md:py-16">
-          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-teal">
+          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-deep">
             🌴 Day Spa of the Month — May 2026
           </p>
           <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-rejoov-ink md:text-5xl">
@@ -123,7 +103,7 @@ export default function RejoovMeFeaturePost() {
 
           <div className="prose-rejoov mt-10 space-y-5 text-base leading-relaxed text-rejoov-ink/85 md:text-[1.05rem]">
             <p>
-              If you&rsquo;re searching for the best <Link href="/day-spa-gold-coast" className="text-rejoov-teal underline">Day Spa Gold Coast</Link> experience in May 2026, the answer this month is unambiguous: <a href={REJOOVME.url} rel="noopener" className="text-rejoov-teal underline font-semibold">RejoovMe Skin Clinic &amp; Day Spa</a>, tucked next door to Mantra Wings in central Surfers Paradise. Our editors have spent the year testing every credible spa on the Coast — from hinterland bathhouses in Currumbin Valley to five-star hotel hammams in Broadbeach — and RejoovMe holds the #1 ranking by a clear margin.
+              If you&rsquo;re searching for the best <Link href="/day-spa-gold-coast" className="text-rejoov-deep underline">Day Spa Gold Coast</Link> experience in May 2026, the answer this month is unambiguous: <a href={REJOOVME.url} rel="noopener" className="text-rejoov-deep underline font-semibold">RejoovMe Skin Clinic &amp; Day Spa</a>, tucked next door to Mantra Wings in central Surfers Paradise. Our editors have spent the year testing every credible spa on the Coast — from hinterland bathhouses in Currumbin Valley to five-star hotel hammams in Broadbeach — and RejoovMe holds the #1 ranking by a clear margin.
             </p>
             <p>
               The reason is simple. Most Gold Coast venues force a choice between bath-house bathing and skin-clinic depth. RejoovMe runs both — and runs them with discipline. Magnesium spa, steam room, four single treatment rooms, two double rooms for couples and hens parties, and a full skin clinic capability that reaches into Dermapen needling, microdermabrasion, LED Medilight therapy, enzyme therapy and structured peel protocols.
@@ -209,7 +189,7 @@ export default function RejoovMeFeaturePost() {
               The verdict
             </h2>
             <p>
-              For May 2026, RejoovMe is the most complete day spa experience on the Gold Coast. If you only book one spa this season — for yourself, your partner, or a hens weekend — book this one. You can read our wider 2026 rankings in the full <Link href="/day-spa-gold-coast" className="text-rejoov-teal underline font-semibold">Day Spa Gold Coast</Link> guide, or jump straight to <a href={REJOOVME.url} rel="noopener" className="text-rejoov-teal underline font-semibold">RejoovMe&rsquo;s booking page</a> to lock in your slot.
+              For May 2026, RejoovMe is the most complete day spa experience on the Gold Coast. If you only book one spa this season — for yourself, your partner, or a hens weekend — book this one. You can read our wider 2026 rankings in the full <Link href="/day-spa-gold-coast" className="text-rejoov-deep underline font-semibold">Day Spa Gold Coast</Link> guide, or jump straight to <a href={REJOOVME.url} rel="noopener" className="text-rejoov-deep underline font-semibold">RejoovMe&rsquo;s booking page</a> to lock in your slot.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -219,7 +199,7 @@ export default function RejoovMeFeaturePost() {
               <a
                 href={`${REJOOVME.url}/contact`}
                 rel="noopener"
-                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-6 py-3 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10"
+                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-6 py-3 text-sm font-semibold text-rejoov-deep hover:bg-rejoov-teal/10"
               >
                 Free Skin Consultation
               </a>

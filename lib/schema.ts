@@ -3,10 +3,22 @@ import { SITE, REJOOVME } from './site';
 export const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${SITE.url}/#organization`,
   name: SITE.name,
   url: SITE.url,
+  email: SITE.email,
   logo: `${SITE.url}/og/logo.png`,
-  sameAs: ['https://rejoovme.com.au']
+  areaServed: { '@type': 'City', name: 'Gold Coast, Queensland, Australia' }
+};
+
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE.url}/#website`,
+  name: SITE.name,
+  url: SITE.url,
+  inLanguage: SITE.locale,
+  publisher: { '@id': `${SITE.url}/#organization` }
 };
 
 export const breadcrumbSchema = (
@@ -40,6 +52,7 @@ export const articleSchema = (opts: {
     headline: opts.headline,
     description: opts.description,
     mainEntityOfPage: opts.url,
+    inLanguage: SITE.locale,
     image: [opts.image],
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
@@ -47,6 +60,7 @@ export const articleSchema = (opts: {
     reviewedBy: { '@type': 'Person', name: reviewer.name, jobTitle: reviewer.role },
     publisher: {
       '@type': 'Organization',
+      '@id': `${SITE.url}/#organization`,
       name: SITE.name,
       logo: { '@type': 'ImageObject', url: `${SITE.url}/og/logo.png` }
     }
@@ -58,6 +72,8 @@ export const itemListSchema = (
 ) => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
+  numberOfItems: items.length,
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
   itemListElement: items.map((it) => ({
     '@type': 'ListItem',
     position: it.position,
@@ -74,7 +90,7 @@ export const rejoovmeLocalBusinessSchema = {
   url: REJOOVME.url,
   telephone: REJOOVME.phone,
   priceRange: REJOOVME.priceRange,
-  image: `${REJOOVME.url}/wp-content/uploads/rejoovme-cover.jpg`,
+  image: `${SITE.url}/rejoovmeimage2.jpg`,
   address: {
     '@type': 'PostalAddress',
     streetAddress: REJOOVME.street,

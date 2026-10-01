@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/components/JsonLd';
 import { notFound } from 'next/navigation';
 import { SITE, REJOOVME } from '@/lib/site';
 import { suburbs, suburbBySlug } from '@/lib/suburbs';
@@ -14,6 +14,7 @@ import {
 import { Header } from '@/components/Header';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Footer } from '@/components/Footer';
+import { MobileStickyCTA } from '@/components/MobileStickyCTA';
 
 export const dynamicParams = false;
 
@@ -26,14 +27,14 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const s = suburbBySlug(params.suburb);
   if (!s) return {};
-  const title = `Day Spa ${s.name} | Best Day Spa Near ${s.name} 2026`;
+  const title = `Day Spa ${s.name}: Best Day Spa Near ${s.name} (${SITE.year})`;
   const description =
     s.travelMins === 0
       ? `The best day spa in ${s.name} for 2026 — RejoovMe Skin Clinic & Day Spa, two minutes from Cavill Avenue with magnesium spa, steam room and free parking.`
       : `The best day spa near ${s.name} for 2026 — RejoovMe in Surfers Paradise, only ${s.travelMins} minutes from ${s.name}. Magnesium spa, steam room, free parking.`;
   const url = `${SITE.url}/day-spa/${s.slug}`;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: `/day-spa/${s.slug}` },
     openGraph: {
@@ -52,7 +53,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
 
   const url = `${SITE.url}/day-spa/${s.slug}`;
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
+    { name: 'Day Spa Gold Coast', href: '/day-spa-gold-coast' },
     { name: 'Day Spas by Suburb', href: '/day-spa' },
     { name: `Day Spa ${s.name}`, href: `/day-spa/${s.slug}` }
   ];
@@ -73,21 +74,17 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
 
   return (
     <>
-      <Script id={`ld-article-${s.slug}`} type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
-      <Script id={`ld-breadcrumb-${s.slug}`} type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <Script id={`ld-faq-${s.slug}`} type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
-      <Script id={`ld-business-${s.slug}`} type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeLocalBusinessSchema) }} />
+      <JsonLd data={article} />
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={faq} />
+      <JsonLd data={rejoovmeLocalBusinessSchema} />
 
       <Header />
-      <main className="bg-rejoov-glow">
+      <main id="main" className="bg-rejoov-glow">
         <Breadcrumbs items={breadcrumbs} />
 
         <article className="mx-auto max-w-3xl px-5 py-10 md:py-14">
-          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-teal">
+          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-deep">
             🌴 {s.name} · {s.postcode}
           </p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
@@ -99,7 +96,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
 
           {/* Distance / travel card */}
           <aside className="mt-8 rounded-2xl border border-rejoov-teal/30 bg-white/80 p-6 ring-1 ring-rejoov-teal/15 md:p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-rejoov-teal">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-rejoov-deep">
               {s.travelMins === 0 ? 'Right here' : `Only ${s.travelMins} minutes from ${s.name}`}
             </p>
             <h2 className="mt-2 font-display text-xl font-semibold text-rejoov-ink md:text-2xl">
@@ -118,7 +115,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
               </a>
               <Link
                 href="/day-spa-gold-coast"
-                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-3 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10 md:px-6"
+                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-3 text-sm font-semibold text-rejoov-deep hover:bg-rejoov-teal/10 md:px-6"
               >
                 Read the full Day Spa Gold Coast guide →
               </Link>
@@ -153,7 +150,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
                 <li key={i} className="flex gap-3">
                   <span
                     aria-hidden
-                    className="mt-1 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-rejoov-teal/15 text-rejoov-teal text-xs font-bold"
+                    className="mt-1 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-rejoov-teal/15 text-rejoov-deep text-xs font-bold"
                   >
                     ✦
                   </span>
@@ -174,8 +171,8 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
                 className="h-12 w-auto object-contain"
               />
               <div className="flex-1">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-rejoov-teal">
-                  Day Spa of the Month — May 2026
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-rejoov-deep">
+                  Day Spa of the Month — {SITE.featureMonth}
                 </p>
                 <h2 className="mt-1 font-display text-xl font-semibold text-rejoov-ink md:text-2xl">
                   Our pick for {s.name} residents: RejoovMe in Surfers Paradise
@@ -196,7 +193,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
               <a
                 href={`${REJOOVME.url}/contact`}
                 rel="noopener"
-                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10"
+                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-deep hover:bg-rejoov-teal/10"
               >
                 Free Skin Consultation
               </a>
@@ -213,7 +210,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
                 <details key={f.q} className="group p-5 open:bg-rejoov-teal/5">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-base font-semibold text-rejoov-ink md:text-lg">
                     <span>{f.q}</span>
-                    <span aria-hidden className="mt-1 select-none text-rejoov-teal transition group-open:rotate-45">
+                    <span aria-hidden className="mt-1 select-none text-rejoov-deep transition group-open:rotate-45">
                       +
                     </span>
                   </summary>
@@ -237,7 +234,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
                     <li key={slug}>
                       <Link
                         href={`/day-spa/${n.slug}`}
-                        className="inline-flex items-center rounded-full border border-rejoov-teal/30 bg-white px-4 py-1.5 text-sm font-semibold text-rejoov-ink/80 hover:border-rejoov-teal hover:text-rejoov-teal"
+                        className="inline-flex items-center rounded-full border border-rejoov-teal/30 bg-white px-4 py-1.5 text-sm font-semibold text-rejoov-ink/80 hover:border-rejoov-teal hover:text-rejoov-deep"
                       >
                         Day Spa {n.name} →
                       </Link>
@@ -247,7 +244,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
                 <li>
                   <Link
                     href="/day-spa"
-                    className="inline-flex items-center rounded-full border border-rejoov-teal/30 bg-white px-4 py-1.5 text-sm font-semibold text-rejoov-ink/80 hover:border-rejoov-teal hover:text-rejoov-teal"
+                    className="inline-flex items-center rounded-full border border-rejoov-teal/30 bg-white px-4 py-1.5 text-sm font-semibold text-rejoov-ink/80 hover:border-rejoov-teal hover:text-rejoov-deep"
                   >
                     All suburbs →
                   </Link>
@@ -258,6 +255,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
         </article>
       </main>
       <Footer />
+      <MobileStickyCTA />
     </>
   );
 }

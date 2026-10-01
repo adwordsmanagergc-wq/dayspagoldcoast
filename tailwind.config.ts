@@ -15,7 +15,12 @@ const config: Config = {
           neon: '#00FFCB',
           ink: '#313133',
           sand: '#FAF6F0',
-          gold: '#D4AF7A'
+          shell: '#F3ECE1',
+          gold: '#D4AF7A',
+          // Text-safe accents (WCAG AA on sand/white).
+          deep: '#0B6B65',
+          night: '#0F2A2B',
+          bronze: '#8A6A3B'
         }
       },
       fontFamily: {
@@ -23,7 +28,8 @@ const config: Config = {
         body: ['var(--font-body)', 'system-ui', 'sans-serif']
       },
       boxShadow: {
-        rejoov: '0 12px 28px rgba(79,209,197,0.64)'
+        rejoov: '0 12px 28px rgba(79,209,197,0.64)',
+        card: '0 1px 2px rgba(15,42,43,0.04), 0 12px 32px -12px rgba(15,42,43,0.12)'
       },
       backgroundImage: {
         'rejoov-glow':

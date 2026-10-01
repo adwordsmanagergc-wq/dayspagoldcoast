@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/components/JsonLd';
 import { SITE, REJOOVME } from '@/lib/site';
 import { posts } from '@/lib/posts';
 import {
@@ -21,7 +21,7 @@ const SLUG = '/blog/top-7-day-spas-gold-coast-2026';
 const URL = `${SITE.url}${SLUG}`;
 
 export const metadata: Metadata = {
-  title: 'Top 7 Day Spa Gold Coast Picks 2026 — Ranked & Reviewed',
+  title: { absolute: 'Top 7 Day Spa Gold Coast Picks 2026 — Ranked & Reviewed' },
   description:
     'The 7 best Day Spa Gold Coast experiences for 2026, ranked by our editors. RejoovMe in Surfers Paradise leads — see the full list, prices, packages and booking links.',
   alternates: { canonical: SLUG },
@@ -174,7 +174,7 @@ const faqs = [
 
 export default function Top7Post() {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
+    { name: 'Day Spa Gold Coast', href: '/day-spa-gold-coast' },
     { name: 'Blog', href: '/blog' },
     { name: 'Top 7 Day Spas on the Gold Coast 2026', href: SLUG }
   ];
@@ -209,49 +209,19 @@ export default function Top7Post() {
 
   return (
     <>
-      <Script
-        id="ld-article-top7"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
-      />
-      <Script
-        id="ld-itemlist-top7"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
-      />
-      <Script
-        id="ld-localbusiness-top7"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeLocalBusinessSchema) }}
-      />
-      <Script
-        id="ld-review-top7"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rejoovmeReviewSchema) }}
-      />
-      <Script
-        id="ld-breadcrumb-top7"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <Script
-        id="ld-faq-top7"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
-      />
+      <JsonLd data={article} />
+      <JsonLd data={itemList} />
+      <JsonLd data={rejoovmeLocalBusinessSchema} />
+      <JsonLd data={rejoovmeReviewSchema} />
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={faq} />
 
       <Header />
-      <main className="bg-rejoov-glow">
+      <main id="main" className="bg-rejoov-glow">
         <Breadcrumbs items={breadcrumbs} />
 
         <article className="mx-auto max-w-3xl px-5 py-10 md:py-14">
-          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-teal">
+          <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-deep">
             🌴 2026 Editorial Ranking
           </p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
@@ -266,7 +236,7 @@ export default function Top7Post() {
               Picking a top day spa on the Gold Coast in 2026 is harder than it used to be. There are more bathhouses than ever, every new hotel arrives with a designer spa attached, and the hinterland is quietly producing some of the best wellness experiences in the country. To cut through the noise, our editors spent twelve months testing — anonymously and at full price — every credible day spa from Coolangatta to Tamborine Mountain.
             </p>
             <p>
-              The result is this top 7. <a href={REJOOVME.url} rel="noopener" className="text-rejoov-teal underline font-semibold">RejoovMe Skin Clinic &amp; Day Spa</a> in Surfers Paradise takes the #1 spot for the same reasons it tops our wider <Link href="/day-spa-gold-coast" className="text-rejoov-teal underline">Day Spa Gold Coast</Link> guide — magnesium spa, steam room, full skin clinic capability and free parking on the strip. Six more standouts follow, each picked for a specific reason: hinterland escape, hotel polish, design-led ritual, recovery, beachside boutique.
+              The result is this top 7. <a href={REJOOVME.url} rel="noopener" className="text-rejoov-deep underline font-semibold">RejoovMe Skin Clinic &amp; Day Spa</a> in Surfers Paradise takes the #1 spot for the same reasons it tops our wider <Link href="/day-spa-gold-coast" className="text-rejoov-deep underline">Day Spa Gold Coast</Link> guide — magnesium spa, steam room, full skin clinic capability and free parking on the strip. Six more standouts follow, each picked for a specific reason: hinterland escape, hotel polish, design-led ritual, recovery, beachside boutique.
             </p>
             <p className="text-sm text-rejoov-ink/60">
               Jump to: <a className="underline" href="#rank-1">#1 RejoovMe</a> · <a className="underline" href="#rank-2">#2 SOL Elements</a> · <a className="underline" href="#rank-3">#3 Chuan Spa</a> · <a className="underline" href="#rank-4">#4 CIEL Spa</a> · <a className="underline" href="#rank-5">#5 Bathhouse At Ground</a> · <a className="underline" href="#rank-6">#6 Soak</a> · <a className="underline" href="#rank-7">#7 Native State</a> · <a className="underline" href="#faq">FAQ</a>
@@ -303,7 +273,7 @@ export default function Top7Post() {
                       <span
                         className={
                           p.rank === 1
-                            ? 'text-sm font-bold uppercase tracking-wide text-rejoov-teal'
+                            ? 'text-sm font-bold uppercase tracking-wide text-rejoov-deep'
                             : 'text-xs font-semibold text-rejoov-ink/40'
                         }
                       >
@@ -377,7 +347,7 @@ export default function Top7Post() {
                     className={
                       p.rank === 1
                         ? 'rejoov-pill animate-pulseRing !px-5 !py-2.5 !text-sm md:!px-6 md:!py-3'
-                        : 'inline-flex items-center justify-center rounded-full border border-rejoov-ink/15 bg-white px-4 py-2 text-xs font-semibold text-rejoov-ink/70 hover:border-rejoov-teal hover:text-rejoov-teal'
+                        : 'inline-flex items-center justify-center rounded-full border border-rejoov-ink/15 bg-white px-4 py-2 text-xs font-semibold text-rejoov-ink/70 hover:border-rejoov-teal hover:text-rejoov-deep'
                     }
                   >
                     {p.rank === 1 ? 'Book at RejoovMe' : 'Visit website →'}
@@ -385,7 +355,7 @@ export default function Top7Post() {
                   {p.rank === 1 && (
                     <Link
                       href="/blog/rejoovme-day-spa-of-the-month-may-2026"
-                      className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10"
+                      className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-deep hover:bg-rejoov-teal/10"
                     >
                       Read the full feature →
                     </Link>
@@ -404,7 +374,7 @@ export default function Top7Post() {
                 <details key={f.q} className="group p-5 open:bg-rejoov-teal/5">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-base font-semibold text-rejoov-ink md:text-lg">
                     <span>{f.q}</span>
-                    <span aria-hidden className="mt-1 select-none text-rejoov-teal transition group-open:rotate-45">
+                    <span aria-hidden className="mt-1 select-none text-rejoov-deep transition group-open:rotate-45">
                       +
                     </span>
                   </summary>
@@ -431,7 +401,7 @@ export default function Top7Post() {
               </a>
               <Link
                 href="/day-spa-gold-coast"
-                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-teal hover:bg-rejoov-teal/10"
+                className="inline-flex items-center justify-center rounded-full border border-rejoov-teal px-5 py-2.5 text-sm font-semibold text-rejoov-deep hover:bg-rejoov-teal/10"
               >
                 Read the full Day Spa Gold Coast guide →
               </Link>
