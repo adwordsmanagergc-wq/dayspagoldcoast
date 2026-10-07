@@ -12,6 +12,14 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Canonical host is non-www: redirect any www request to the same path
+      // on the apex so relative internal links never resolve to www URLs.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.dayspagoldcoast.com' }],
+        destination: 'https://dayspagoldcoast.com/:path*',
+        permanent: true
+      },
       { source: '/', destination: '/day-spa-gold-coast', permanent: true }
     ];
   }
