@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Nunito_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { SITE } from '@/lib/site';
 import { orgSchema, websiteSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/JsonLd';
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
