@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: 'Day Spa Gold Coast Blog: 2026 Rankings & Reviews',
     description:
       'Long-form, independently produced Day Spa Gold Coast features, rankings and Day Spa of the Month picks.',
-    images: [{ url: '/og/day-spa-gold-coast.jpg', width: 1200, height: 630 }]
+    images: [{ url: '/og/blog.jpg', width: 1200, height: 630 }]
   }
 };
 

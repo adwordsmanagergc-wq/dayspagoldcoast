@@ -33,21 +33,17 @@ export const metadata: Metadata = {
   creator: SITE.publisher,
   publisher: SITE.publisher,
   formatDetection: { telephone: false },
+  // Each page sets its own og:title/description/image; these are only defaults.
   openGraph: {
     type: 'website',
     locale: 'en_AU',
     siteName: SITE.name,
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: 'Day Spa Gold Coast — the best day spas ranked, updated October 2026' }]
+    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: 'Day Spa Gold Coast' }]
   },
   twitter: {
     card: 'summary_large_image',
     site: SITE.twitter,
-    creator: SITE.twitter,
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [SITE.ogImage]
+    creator: SITE.twitter
   },
   robots: {
     index: true,

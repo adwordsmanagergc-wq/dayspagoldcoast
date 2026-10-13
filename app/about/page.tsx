@@ -7,7 +7,14 @@ export const metadata: Metadata = {
   title: 'About Us & Editorial Policy',
   description:
     'Who writes Day Spa Gold Coast, how we test and rank Gold Coast day spas, and how our Day Spa of the Month partnership works.',
-  alternates: { canonical: '/about' }
+  alternates: { canonical: '/about' },
+  openGraph: {
+    type: 'website',
+    url: '/about',
+    title: 'About Day Spa Gold Coast & our editorial policy',
+    description: 'Who writes Day Spa Gold Coast, how we test and rank Gold Coast day spas, and how our Day Spa of the Month partnership works.',
+    images: [{ url: '/og/about.jpg', width: 1200, height: 630 }]
+  }
 };
 
 export default function AboutPage() {

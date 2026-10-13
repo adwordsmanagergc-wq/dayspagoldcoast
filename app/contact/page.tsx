@@ -5,7 +5,14 @@ import { SimplePage } from '@/components/SimplePage';
 export const metadata: Metadata = {
   title: 'Contact the Editors',
   description: 'Contact the Day Spa Gold Coast editorial team, venue suggestions, corrections and partnership enquiries.',
-  alternates: { canonical: '/contact' }
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    type: 'website',
+    url: '/contact',
+    title: 'Contact the Day Spa Gold Coast editors',
+    description: 'Suggest a day spa, send a correction or ask about partnerships.',
+    images: [{ url: '/og/contact.jpg', width: 1200, height: 630 }]
+  }
 };
 
 export default function ContactPage() {

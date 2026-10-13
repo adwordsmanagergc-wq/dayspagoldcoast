@@ -53,7 +53,7 @@ Vercel-ready. Push to `main` and import. Set the `SITE_URL` env var in the Verce
 
 ## Images
 
-OG cards in `public/og/` were generated from the site's own photos (1200×630). Competitor cards use generated monograms (`components/CompetitorMonogram.tsx`), so no competitor images are needed.
+Every page has its own 1200×630 link-preview card in `public/og/`, rendered in the DESIGN.md style by `node scripts/og-images.mjs` (needs Playwright + Chromium). Re-run it after adding a page or changing `SITE.featureMonth`; suburb cards are generated from `lib/suburbs.ts` automatically. Competitor cards use generated monograms (`components/CompetitorMonogram.tsx`), so no competitor images are needed.
 
 ## Image sourcing (legacy notes)
 

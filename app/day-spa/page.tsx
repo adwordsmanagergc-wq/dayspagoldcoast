@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: 'Day Spa by Suburb: Gold Coast 2026 Local Guides',
     description:
       'Local Day Spa Gold Coast guides for every major Gold Coast suburb, with travel times, local context and booking links.',
-    images: [{ url: '/og/day-spa-gold-coast.jpg', width: 1200, height: 630 }]
+    images: [{ url: '/og/day-spa.jpg', width: 1200, height: 630 }]
   }
 };
 

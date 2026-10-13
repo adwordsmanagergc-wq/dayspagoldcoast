@@ -43,7 +43,7 @@ export async function generateMetadata(
       url,
       title,
       description,
-      images: [{ url: '/og/day-spa-gold-coast.jpg', width: 1200, height: 630 }]
+      images: [{ url: `/og/day-spa-${s.slug}.jpg`, width: 1200, height: 630, alt: `Day Spa ${s.name}` }]
     }
   };
 }
@@ -63,7 +63,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
     headline: `Day Spa ${s.name} | Best Day Spa Near ${s.name} 2026`,
     description: `Local 2026 day spa guide for ${s.name}, ${s.postcode}. RejoovMe in Surfers Paradise is the closest venue with magnesium spa, steam room and full skin clinic capability.`,
     url,
-    image: `${SITE.url}/og/day-spa-gold-coast.jpg`,
+    image: `${SITE.url}/og/day-spa-${s.slug}.jpg`,
     datePublished: '2026-03-01',
     dateModified: SITE.lastUpdatedISO
   });

@@ -5,7 +5,14 @@ import { SimplePage } from '@/components/SimplePage';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How Day Spa Gold Coast handles your information.',
-  alternates: { canonical: '/privacy' }
+  alternates: { canonical: '/privacy' },
+  openGraph: {
+    type: 'website',
+    url: '/privacy',
+    title: 'Privacy policy | Day Spa Gold Coast',
+    description: 'How Day Spa Gold Coast handles your information.',
+    images: [{ url: '/og/privacy.jpg', width: 1200, height: 630 }]
+  }
 };
 
 export default function PrivacyPage() {
