@@ -1,28 +1,29 @@
+import Image from 'next/image';
+import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr';
 import { REJOOVME, SITE } from '@/lib/site';
 
 export function FinalCTA() {
   return (
-    <section className="relative isolate overflow-hidden bg-rejoov-night py-20 text-white md:py-24">
-      <div aria-hidden className="absolute -right-24 -top-24 -z-10 h-80 w-80 rounded-full bg-rejoov-teal/25 blur-3xl" />
-      <div aria-hidden className="absolute -bottom-32 -left-16 -z-10 h-80 w-80 rounded-full bg-rejoov-gold/20 blur-3xl" />
-      <div className="mx-auto max-w-3xl px-5 text-center">
-        <p className="eyebrow !text-rejoov-gold">Day Spa of the Month — {SITE.featureMonth}</p>
-        <h2 className="mt-3 font-display text-3xl font-semibold md:text-5xl">
-          Book the best day spa on the Gold Coast
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-white/75">
-          Magnesium spa, steam room, expert therapists and a full skin clinic — under one roof in Surfers Paradise, with free parking.
-        </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href={REJOOVME.url} rel="noopener" className="rejoov-pill animate-pulseRing">
-            Book RejoovMe
-          </a>
-          <a
-            href={`tel:${REJOOVME.phone.replace(/\s/g, '')}`}
-            className="rounded-full border border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
-          >
-            Call {REJOOVME.phone}
-          </a>
+    <section className="mx-auto max-w-site px-5 pb-24 md:px-10 md:pb-32">
+      <div className="reveal-wipe relative isolate flex min-h-[520px] items-end overflow-hidden rounded-surface p-8 md:min-h-[600px] md:p-14">
+        <Image src="/rejoovmeimage4.jpg" alt="The magnesium spa pool at RejoovMe in Surfers Paradise" fill sizes="(min-width: 1320px) 1240px, 100vw" className="-z-10 object-cover" />
+        <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/5" />
+        <div className="max-w-2xl text-canvas">
+          <p className="text-sm text-canvas/90">Day Spa of the Month · {SITE.featureMonth}</p>
+          <h2 className="mt-4 text-[clamp(40px,6vw,88px)] font-light leading-[1]">
+            Your afternoon, <em className="italic">sorted.</em>
+          </h2>
+          <p className="mt-5 max-w-md text-canvas/90">
+            Magnesium spa, steam, expert therapists and a full skin clinic in Surfers Paradise, with free parking.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={REJOOVME.url} rel="noopener" className="btn bg-canvas text-ink hover:bg-surface">
+              Book RejoovMe <ArrowUpRight size={16} className="btn-arrow" aria-hidden />
+            </a>
+            <a href={`tel:${REJOOVME.phone.replace(/\s/g, '')}`} className="btn text-canvas shadow-[inset_0_0_0_1px_rgba(243,241,236,0.5)] hover:bg-canvas/10">
+              Call {REJOOVME.phone}
+            </a>
+          </div>
         </div>
       </div>
     </section>

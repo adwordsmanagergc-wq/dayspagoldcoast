@@ -1,67 +1,70 @@
+import { Fragment } from 'react';
 import Image from 'next/image';
-import { SITE } from '@/lib/site';
+import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/dist/ssr';
+import { SITE, REJOOVME } from '@/lib/site';
 import { competitors } from '@/lib/data';
 
-function Initials({ name, tone }: { name: string; tone: string }) {
-  const ini = name.replace(/^Dr\.?\s+/, '').split(' ').map((w) => w[0]).slice(0, 2).join('');
-  return (
-    <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold ring-2 ring-white/80 ${tone}`} aria-hidden>
-      {ini}
-    </span>
-  );
-}
-
-export function Hero({ readingMins }: { readingMins: number }) {
+/**
+ * Split, asymmetric hero. Motion (CSS only, reduced-motion safe): headline
+ * words materialise from blur in sequence; the arch photo wipes up like water
+ * draining from glass, then the skyline inset follows.
+ */
+export function Hero() {
   const total = competitors.length + 1;
+  const words = ['Day', 'Spa', 'Gold', 'Coast,'];
   return (
-    <section className="relative isolate overflow-hidden bg-rejoov-night">
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/images/hero/gold-coast-hero.jpg"
-          alt="Gold Coast skyline and beach at golden hour — day spa Gold Coast guide"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-70"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-rejoov-night/70 via-rejoov-night/55 to-rejoov-night/95" />
-      </div>
-
-      <div className="mx-auto max-w-5xl px-5 pb-28 pt-16 text-center md:pb-36 md:pt-24">
-        <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-rejoov-gold ring-1 ring-white/15 backdrop-blur">
-          <span className="h-1.5 w-1.5 rounded-full bg-rejoov-neon" aria-hidden />
-          {SITE.lastUpdatedHuman} · {total} spas tested
-        </p>
-        <h1 className="mx-auto mt-6 max-w-4xl font-display text-[2.15rem] font-bold leading-[1.08] text-white sm:text-5xl md:text-[4rem]">
-          Day Spa Gold Coast: The {total} Best Day Spas, Tested &amp; Ranked
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
-          Salt air, hinterland calm and Surfers Paradise polish. We booked, paid for and reviewed every credible day spa from Coolangatta to Tamborine Mountain — here is where to go in spring {SITE.year}.
-        </p>
-
-        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="#day-spa-of-the-month" className="rejoov-pill animate-pulseRing">
-            See the #1 day spa
-          </a>
-          <a
-            href="#rankings"
-            className="rounded-full border border-white/40 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
-          >
-            Compare all {total} spas
-          </a>
+    <section className="relative">
+      <div className="mx-auto grid max-w-site items-center gap-10 px-5 pb-16 pt-8 md:min-h-[calc(100dvh-73px)] md:grid-cols-12 md:gap-6 md:px-10 md:pb-12 md:pt-6">
+        <div className="md:col-span-7 lg:col-span-7">
+          <p className="label arrive" style={{ ['--i' as string]: 0 }}>
+            {SITE.lastUpdatedHuman} · {total} spas tested
+          </p>
+          <h1 className="mt-5 text-[clamp(56px,9.2vw,138px)] font-light leading-[0.92] tracking-[-0.035em] text-ink">
+            {/* Real spaces between word spans so the heading text reads "Day Spa Gold Coast, ranked." */}
+            {words.map((w, i) => (
+              <Fragment key={w}>
+                <span className="arrive inline-block" style={{ ['--i' as string]: i + 1 }}>
+                  {w}
+                </span>{' '}
+              </Fragment>
+            ))}
+            <span className="arrive inline-block pb-[0.08em] italic text-lagoon" style={{ ['--i' as string]: 5 }}>
+              ranked.
+            </span>
+          </h1>
+          <p className="arrive mt-7 max-w-[30rem] text-lg leading-relaxed text-ink-mute md:text-xl" style={{ ['--i' as string]: 7 }}>
+            {total} day spas from Coolangatta to Tamborine Mountain, booked, paid for and scored. Here is where to go this spring.
+          </p>
+          <div className="arrive mt-9 flex flex-wrap gap-3" style={{ ['--i' as string]: 8 }}>
+            <a href="#rankings" className="btn btn-primary">
+              See the ranking <ArrowRight size={16} className="btn-arrow" aria-hidden />
+            </a>
+            <a href={REJOOVME.url} rel="noopener" className="btn btn-ghost">
+              Book RejoovMe <ArrowUpRight size={16} className="btn-arrow" aria-hidden />
+            </a>
+          </div>
         </div>
 
-        <div className="mt-9 flex items-center justify-center gap-3 text-left text-xs text-white/80">
-          <div className="flex -space-x-2">
-            <Initials name={SITE.author.name} tone="bg-rejoov-teal text-rejoov-night" />
-            <Initials name={SITE.reviewer.name} tone="bg-rejoov-gold text-rejoov-night" />
+        <div className="relative md:col-span-5 lg:col-span-5">
+          <div className="wipe arch relative ml-auto aspect-[4/5] w-[78%] overflow-hidden shadow-raised md:w-[88%]" style={{ ['--d' as string]: '150ms' }}>
+            <Image
+              src="/rejoovmeimage5.jpg"
+              alt="Guest relaxing in the magnesium spa pool at RejoovMe, Surfers Paradise, the best day spa on the Gold Coast"
+              fill
+              priority
+              sizes="(min-width: 768px) 38vw, 78vw"
+              className="object-cover"
+            />
           </div>
-          <p>
-            By <strong className="text-white">{SITE.author.name}</strong> · Reviewed by{' '}
-            <strong className="text-white">{SITE.reviewer.name}</strong>
-            <br />
-            <time dateTime={SITE.lastUpdatedISO}>{SITE.lastUpdatedHuman}</time> · {readingMins} min read
-          </p>
+          <div className="wipe absolute -bottom-6 left-0 aspect-[4/3] w-[48%] overflow-hidden rounded-surface shadow-raised ring-[6px] ring-canvas md:-bottom-8 md:w-[46%]" style={{ ['--d' as string]: '550ms' }}>
+            <Image
+              src="/images/hero/gold-coast-hero.jpg"
+              alt="Surfers Paradise skyline and beach on the Gold Coast"
+              fill
+              sizes="(min-width: 768px) 20vw, 48vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

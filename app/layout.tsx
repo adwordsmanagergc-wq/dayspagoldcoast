@@ -1,23 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Nunito_Sans } from 'next/font/google';
+import { Newsreader } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
 import { Analytics } from '@vercel/analytics/next';
 import { SITE } from '@/lib/site';
 import { orgSchema, websiteSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/JsonLd';
 import './globals.css';
 
-const display = Fraunces({
+const display = Newsreader({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  weight: ['400', '600', '700']
-});
-
-const body = Nunito_Sans({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-  weight: ['300', '400', '600', '700']
+  weight: ['300', '400'],
+  style: ['normal', 'italic']
 });
 
 const TITLE = `Day Spa Gold Coast: 18 Best Day Spas Ranked (${SITE.featureMonth})`;
@@ -66,20 +61,20 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0F2A2B'
+  themeColor: '#F3F1EC'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AU" className={`${display.variable} ${body.variable}`}>
+    <html lang="en-AU" className={`${display.variable} ${GeistSans.variable}`}>
       <head>
         <JsonLd data={orgSchema} />
         <JsonLd data={websiteSchema} />
       </head>
-      <body className="bg-rejoov-sand text-rejoov-ink antialiased">
+      <body className="grain bg-canvas text-ink antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-rejoov-night focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[var(--z-skip)] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-canvas"
         >
           Skip to content
         </a>

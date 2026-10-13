@@ -4,7 +4,7 @@ import { SimplePage } from '@/components/SimplePage';
 
 export const metadata: Metadata = {
   title: 'Contact the Editors',
-  description: 'Contact the Day Spa Gold Coast editorial team — venue suggestions, corrections and partnership enquiries.',
+  description: 'Contact the Day Spa Gold Coast editorial team, venue suggestions, corrections and partnership enquiries.',
   alternates: { canonical: '/contact' }
 };
 
@@ -24,7 +24,7 @@ export default function ContactPage() {
       </p>
       <h2>Bookings</h2>
       <p>
-        We are an editorial guide and cannot take spa bookings. Please book directly with the venue — every review links to the spa&rsquo;s own website.
+        We are an editorial guide and cannot take spa bookings. Please book directly with the venue; every review links to the spa&rsquo;s own website.
       </p>
     </SimplePage>
   );

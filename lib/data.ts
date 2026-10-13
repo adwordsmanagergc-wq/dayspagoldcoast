@@ -6,8 +6,21 @@ export type SpaStyle =
   | 'Skin studio'
   | 'Recovery studio';
 
+export type Occasion = 'couples' | 'groups' | 'luxury' | 'hinterland' | 'bathing' | 'skin';
+
+export const occasions: { id: Occasion | 'all'; label: string }[] = [
+  { id: 'all', label: 'All spas' },
+  { id: 'couples', label: 'Couples' },
+  { id: 'groups', label: 'Hens & groups' },
+  { id: 'luxury', label: 'Hotel luxury' },
+  { id: 'hinterland', label: 'Hinterland' },
+  { id: 'bathing', label: 'Bathhouses' },
+  { id: 'skin', label: 'Skin & facials' }
+];
+
 export type Spa = {
   name: string;
+  tags: Occasion[];
   suburb: string;
   style: SpaStyle;
   bestFor: string;
@@ -19,6 +32,7 @@ export type Spa = {
 export const competitors: Spa[] = [
   {
     name: 'SOL Elements',
+    tags: ['hinterland', 'couples'],
     suburb: 'Tamborine Mountain',
     style: 'Hinterland retreat',
     bestFor: 'An unplugged hinterland escape',
@@ -29,16 +43,18 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Chuan Spa at The Langham',
+    tags: ['luxury', 'couples'],
     suburb: 'Surfers Paradise',
     style: 'Hotel spa',
     bestFor: 'Five-star hotel luxury',
     url: 'https://www.langhamhotels.com',
     image: '/images/competitors/chuan-spa-langham.jpg',
     description:
-      "Five-star hotel spa built on traditional Chinese medicine principles, and named Oceania's Best Hotel Spa at the 2026 World Spa Awards. Polished, premium and pricey — best paired with a Langham staycation."
+      "Five-star hotel spa built on traditional Chinese medicine principles, and named Oceania's Best Hotel Spa at the 2026 World Spa Awards. Polished, premium and pricey. Best paired with a Langham staycation."
   },
   {
     name: 'CIEL Spa at Mondrian',
+    tags: ['luxury', 'skin'],
     suburb: 'Burleigh Heads',
     style: 'Hotel spa',
     bestFor: 'Design-led Burleigh pampering',
@@ -49,6 +65,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'The Bathhouse At Ground',
+    tags: ['bathing', 'hinterland'],
     suburb: 'Currumbin Valley',
     style: 'Bathhouse',
     bestFor: 'A scenic bathing circuit',
@@ -59,6 +76,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Soak Bathhouse',
+    tags: ['bathing'],
     suburb: 'Mermaid Beach',
     style: 'Recovery studio',
     bestFor: 'Sports recovery',
@@ -69,6 +87,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Native State',
+    tags: ['bathing'],
     suburb: 'Kirra Beach / Coolangatta',
     style: 'Bathhouse',
     bestFor: 'Southern Gold Coast bathing',
@@ -79,6 +98,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Spa by JW',
+    tags: ['luxury', 'couples'],
     suburb: 'Surfers Paradise (JW Marriott)',
     style: 'Hotel spa',
     bestFor: 'Resort guests',
@@ -89,6 +109,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Gwinganna Retreat & Spa',
+    tags: ['hinterland', 'luxury'],
     suburb: 'Tallebudgera Valley',
     style: 'Hinterland retreat',
     bestFor: 'Multi-day wellness retreats',
@@ -99,6 +120,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Lan Bathhouse',
+    tags: ['bathing', 'groups'],
     suburb: 'Surfers Paradise',
     style: 'Bathhouse',
     bestFor: 'Walk-in bathing on the strip',
@@ -109,16 +131,18 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Greenhouse The Bathhouse',
+    tags: ['bathing', 'hinterland'],
     suburb: 'Tallebudgera Valley',
     style: 'Bathhouse',
     bestFor: 'Magnesium pools in nature',
     url: 'https://www.greenhouseretreat.com.au',
     image: '/images/competitors/greenhouse-bathhouse.jpg',
     description:
-      'Magnesium pools, sauna and cold plunge in lush valley surroundings. Bathing-focused — bring your own treatment plan.'
+      'Magnesium pools, sauna and cold plunge in lush valley surroundings. Bathing-focused: bring your own treatment plan.'
   },
   {
     name: 'Earth & Skin',
+    tags: ['skin'],
     suburb: 'Mudgeeraba',
     style: 'Skin studio',
     bestFor: 'Organic, results-led facials',
@@ -129,6 +153,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'One Spa at RACV Royal Pines',
+    tags: ['luxury'],
     suburb: 'Benowa',
     style: 'Hotel spa',
     bestFor: 'Golf & family resort stays',
@@ -139,6 +164,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Azure Spa at The Star',
+    tags: ['luxury'],
     suburb: 'Broadbeach',
     style: 'Hotel spa',
     bestFor: 'Broadbeach hotel guests',
@@ -149,6 +175,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Vikasati Bathhouse',
+    tags: ['bathing', 'groups'],
     suburb: 'Southport',
     style: 'Bathhouse',
     bestFor: 'Budget-friendly bathing',
@@ -159,6 +186,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Q1 Day Spa',
+    tags: ['luxury'],
     suburb: 'Surfers Paradise',
     style: 'Hotel spa',
     bestFor: 'Q1 resort guests',
@@ -169,6 +197,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'On Eagle Wings Mountain Retreat',
+    tags: ['couples', 'hinterland'],
     suburb: 'Neranwood',
     style: 'Hinterland retreat',
     bestFor: 'Romantic overnight stays',
@@ -179,6 +208,7 @@ export const competitors: Spa[] = [
   },
   {
     name: 'Verandah House Wellness Spa',
+    tags: ['hinterland'],
     suburb: 'Tamborine Mountain',
     style: 'Hinterland retreat',
     bestFor: 'Spa + winery day trips',
@@ -189,20 +219,20 @@ export const competitors: Spa[] = [
   }
 ];
 
-/** "Best day spa Gold Coast for …" picks — each targets a long-tail query. */
+/** "Best day spa Gold Coast for …" picks. Each targets a long-tail query. */
 export const bestFor = [
   {
     id: 'overall',
     label: 'Best day spa on the Gold Coast overall',
     pick: 'RejoovMe Skin Clinic & Day Spa',
     where: 'Surfers Paradise',
-    why: 'The only venue we tested that pairs a magnesium spa and steam room with a full dermal skin clinic — plus free unlimited basement parking.',
+    why: 'The only venue we tested that pairs a magnesium spa and steam room with a full dermal skin clinic, plus free unlimited basement parking.',
     href: '#day-spa-of-the-month'
   },
   {
     id: 'couples',
     label: 'Best couples day spa Gold Coast',
-    pick: 'RejoovMe — Massage Package for 2',
+    pick: 'RejoovMe: Massage Package for 2',
     where: 'Surfers Paradise',
     why: 'Two purpose-built double rooms, so you are treated side by side rather than in two rooms booked back to back.',
     href: '#day-spa-of-the-month'
@@ -210,7 +240,7 @@ export const bestFor = [
   {
     id: 'hens',
     label: 'Best day spa for a hens party',
-    pick: 'RejoovMe — Hens & Group package',
+    pick: 'RejoovMe: Hens & Group package',
     where: 'Surfers Paradise',
     why: 'Groups of up to 20, magnesium spa rotations and a run-sheet that keeps the bridal party moving instead of waiting in corridors.',
     href: '/blog/hens-party-gold-coast-ideas'
@@ -221,23 +251,23 @@ export const bestFor = [
     pick: 'Chuan Spa at The Langham',
     where: 'Surfers Paradise',
     why: "Oceania's Best Hotel Spa at the 2026 World Spa Awards. Book it alongside a Langham stay.",
-    href: '#other-spas'
+    href: '#spa-3'
   },
   {
     id: 'hinterland',
     label: 'Best hinterland day spa',
     pick: 'SOL Elements',
     where: 'Tamborine Mountain',
-    why: 'Rainforest treatment rooms, Vichy showers and Watsu — the best reason to drive up the mountain.',
-    href: '#other-spas'
+    why: 'Rainforest treatment rooms, Vichy showers and Watsu. The best reason to drive up the mountain.',
+    href: '#spa-2'
   },
   {
     id: 'bathhouse',
     label: 'Best bathhouse',
     pick: 'The Bathhouse At Ground',
     where: 'Currumbin Valley',
-    why: 'A beautiful hot-pool, sauna and cold-plunge circuit in the valley — bathing first, treatments second.',
-    href: '#other-spas'
+    why: 'A beautiful hot-pool, sauna and cold-plunge circuit in the valley. Bathing first, treatments second.',
+    href: '#spa-5'
   },
   {
     id: 'south',
@@ -245,31 +275,31 @@ export const bestFor = [
     pick: 'Native State',
     where: 'Kirra Beach',
     why: 'Saunas, vitality pool and cold plunge a few steps from the sand at Kirra.',
-    href: '#other-spas'
+    href: '#spa-7'
   },
   {
     id: 'skin',
     label: 'Best day spa for facials & skin treatments',
     pick: 'RejoovMe Skin Clinic & Day Spa',
     where: 'Surfers Paradise',
-    why: 'Dermapen skin needling, peels, LED Medilight and enzyme therapy run by dermal therapists — after a free skin consultation.',
+    why: 'Dermapen skin needling, peels, LED Medilight and enzyme therapy run by dermal therapists, after a free skin consultation.',
     href: '#day-spa-of-the-month'
   }
 ];
 
 /** Typical Gold Coast price ranges, refreshed October 2026. */
 export const priceGuide = [
-  { item: '60-minute relaxation or Swedish massage', range: '$99 – $150' },
-  { item: 'Express facial (30–45 min)', range: '$79 – $130' },
-  { item: 'Advanced or clinical facial (60–90 min)', range: '$150 – $280' },
-  { item: 'Bathhouse circuit pass (90–120 min)', range: '$45 – $95' },
-  { item: 'Half-day package (massage + facial + bathing)', range: '$220 – $380' },
-  { item: 'Full-day signature package', range: '$390 – $550' },
-  { item: 'Couples massage (per couple, 60 min)', range: '$230 – $340' },
-  { item: 'Hens / group package (per person)', range: '$120 – $260' }
-];
+  { item: '60 min relaxation or Swedish massage', min: 99, max: 150 },
+  { item: 'Express facial, 30 to 45 min', min: 79, max: 130 },
+  { item: 'Advanced or clinical facial, 60 to 90 min', min: 150, max: 280 },
+  { item: 'Bathhouse circuit pass, 90 to 120 min', min: 45, max: 95 },
+  { item: 'Half-day package: massage, facial, bathing', min: 220, max: 380 },
+  { item: 'Full-day signature package', min: 390, max: 550 },
+  { item: 'Couples massage, per couple, 60 min', min: 230, max: 340 },
+  { item: 'Hens or group package, per person', min: 120, max: 260 }
+].map((p) => ({ ...p, range: `$${p.min} to $${p.max}` }));
 
-/** Buyer's guide — what to check before you book. */
+/** Buyer's guide: what to check before you book. */
 export const choosingTips = [
   {
     title: 'Decide: bathing, treatments or both',
@@ -281,7 +311,7 @@ export const choosingTips = [
   },
   {
     title: 'Factor in parking and travel',
-    body: 'On the Surfers Paradise and Broadbeach strip, parking can add $20+ to a half-day visit. Hinterland spas add 45–75 minutes of driving each way. Free parking and a central location quietly change the value equation.'
+    body: 'On the Surfers Paradise and Broadbeach strip, parking can add $20+ to a half-day visit. Hinterland spas add 45 to 75 minutes of driving each way. Free parking and a central location quietly change the value equation.'
   },
   {
     title: 'For couples and groups, ask for a double room',
@@ -300,7 +330,7 @@ export const choosingTips = [
 export const faqs = [
   {
     q: 'What is the best day spa on the Gold Coast?',
-    a: 'Our October 2026 pick for the best day spa on the Gold Coast is RejoovMe Skin Clinic & Day Spa in Surfers Paradise. It combines a full skin clinic — Dermapen skin needling, LED Medilight, peels and enzyme therapy — with a magnesium spa and steam room, four treatment rooms and two double rooms for couples and groups, plus free unlimited basement parking.'
+    a: 'Our October 2026 pick for the best day spa on the Gold Coast is RejoovMe Skin Clinic & Day Spa in Surfers Paradise. It combines a full skin clinic (Dermapen skin needling, LED Medilight, peels and enzyme therapy) with a magnesium spa and steam room, four treatment rooms and two double rooms for couples and groups, plus free unlimited basement parking.'
   },
   {
     q: 'How much does a day spa on the Gold Coast cost?',
@@ -316,7 +346,7 @@ export const faqs = [
   },
   {
     q: 'What treatments should I book on my first day spa visit?',
-    a: 'For first-timers we recommend a 60–90 minute relaxation or Swedish massage paired with an express facial. If skin health is your priority, book a free skin consultation first so the therapist can recommend between an enzyme therapy facial, microdermabrasion or LED Medilight session.'
+    a: 'For first-timers we recommend a 60 to 90 minute relaxation or Swedish massage paired with an express facial. If skin health is your priority, book a free skin consultation first so the therapist can recommend between an enzyme therapy facial, microdermabrasion or LED Medilight session.'
   },
   {
     q: 'Are there couples day spa packages on the Gold Coast?',
@@ -336,7 +366,7 @@ export const faqs = [
   },
   {
     q: 'Are there day spas in the Gold Coast hinterland?',
-    a: 'Yes. Tamborine Mountain (SOL Elements, Verandah House), Currumbin Valley (The Bathhouse At Ground) and Tallebudgera Valley (Gwinganna, Greenhouse) are the main hinterland spa areas. Allow 45–75 minutes of driving from Surfers Paradise each way.'
+    a: 'Yes. Tamborine Mountain (SOL Elements, Verandah House), Currumbin Valley (The Bathhouse At Ground) and Tallebudgera Valley (Gwinganna, Greenhouse) are the main hinterland spa areas. Allow 45 to 75 minutes of driving from Surfers Paradise each way.'
   },
   {
     q: 'How far in advance should I book a Gold Coast day spa?',
@@ -344,7 +374,7 @@ export const faqs = [
   },
   {
     q: 'Can I book a day spa for a birthday or special occasion?',
-    a: "Yes — most Gold Coast day spas sell gift vouchers and occasion packages. For birthdays, anniversaries or pre-wedding pampering, RejoovMe's Ultimate Escape or a couples Massage Package for 2 are our most-booked recommendations."
+    a: "Yes. Most Gold Coast day spas sell gift vouchers and occasion packages. For birthdays, anniversaries or pre-wedding pampering, RejoovMe's Ultimate Escape or a couples Massage Package for 2 are our go-to recommendations."
   },
   {
     q: 'Is there a day spa on the Gold Coast for pregnant women?',
@@ -356,7 +386,7 @@ export const faqs = [
   },
   {
     q: 'Is parking included at Gold Coast day spas?',
-    a: 'Most Surfers Paradise venues do not include parking. RejoovMe is the notable exception: free unlimited basement parking is included for every guest — a meaningful saving on the strip where hourly rates start around $6.'
+    a: 'Most Surfers Paradise venues do not include parking. RejoovMe is the notable exception: free unlimited basement parking is included for every guest, a meaningful saving on the strip where hourly rates start around $6.'
   },
   {
     q: 'What should I bring to a day spa?',

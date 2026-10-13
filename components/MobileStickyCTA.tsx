@@ -1,20 +1,15 @@
-import { REJOOVME, SITE } from '@/lib/site';
+import { REJOOVME } from '@/lib/site';
 
-/** Thumb-reach booking bar on small screens. Pages render it once, after <Footer />. */
+/** Thumb-reach booking bar on phones. */
 export function MobileStickyCTA() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/5 bg-white/95 px-4 py-3 shadow-[0_-8px_24px_-12px_rgba(15,42,43,0.25)] backdrop-blur md:hidden">
-      <div className="flex items-center gap-3">
-        <div className="min-w-0 flex-1">
-          <p className="truncate text-[11px] font-bold uppercase tracking-[0.16em] text-rejoov-deep">
-            Day Spa of the Month · {SITE.featureMonth}
-          </p>
-          <p className="truncate text-sm font-semibold text-rejoov-night">RejoovMe, Surfers Paradise</p>
-        </div>
-        <a href={REJOOVME.url} rel="noopener" className="rejoov-pill !px-5 !py-2.5 !text-sm">
-          Book now
-        </a>
-      </div>
+    <div className="fixed inset-x-3 bottom-3 z-[var(--z-sticky-cta)] flex items-center gap-3 rounded-full bg-surface/95 py-2 pl-5 pr-2 shadow-raised backdrop-blur md:hidden">
+      <p className="min-w-0 flex-1 truncate text-sm text-ink">
+        <span className="text-ink-mute">#1 this month:</span> RejoovMe
+      </p>
+      <a href={REJOOVME.url} rel="noopener" className="btn btn-primary !min-h-[44px] !px-5">
+        Book RejoovMe
+      </a>
     </div>
   );
 }

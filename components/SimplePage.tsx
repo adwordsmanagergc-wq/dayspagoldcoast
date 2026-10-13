@@ -31,8 +31,8 @@ export function SimplePage({
         <Breadcrumbs items={crumbs} />
         <article className="mx-auto max-w-3xl px-5 py-12 md:py-16">
           <p className="eyebrow">{eyebrow}</p>
-          <h1 className="mt-3 font-display text-4xl font-bold leading-tight text-rejoov-night md:text-5xl">{title}</h1>
-          <div className="prose-rejoov mt-8 space-y-5 leading-relaxed text-rejoov-ink/85 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-rejoov-night">
+          <h1 className="mt-3 font-display text-4xl font-light leading-tight text-rejoov-night md:text-5xl">{title}</h1>
+          <div className="prose-rejoov mt-8 space-y-5 leading-relaxed text-rejoov-ink/85 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-normal [&_h2]:text-rejoov-night">
             {children}
           </div>
         </article>

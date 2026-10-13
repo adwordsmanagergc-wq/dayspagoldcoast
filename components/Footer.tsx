@@ -2,72 +2,71 @@ import Link from 'next/link';
 import { SITE, REJOOVME } from '@/lib/site';
 import { suburbs } from '@/lib/suburbs';
 import { posts } from '@/lib/posts';
+import { Wordmark } from './Header';
 
 export function Footer() {
   return (
-    <footer className="bg-rejoov-night pb-24 text-rejoov-sand md:pb-0">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <div className="font-display text-xl font-bold">
-            Day Spa <span className="text-rejoov-teal">Gold Coast</span>
-          </div>
-          <p className="mt-3 text-sm leading-relaxed text-rejoov-sand/70">
-            Independent, locally written rankings of the best day spas on the Gold Coast — from Surfers Paradise to the hinterland. {SITE.lastUpdatedHuman}.
+    <footer className="relative z-[2] bg-canvas-soft pb-28 text-ink md:pb-10">
+      <div className="mx-auto grid max-w-site gap-12 px-5 pt-20 md:grid-cols-12 md:px-10">
+        <div className="md:col-span-4">
+          <p className="max-w-xs text-ink-mute">
+            Independent rankings of the best day spas on the Gold Coast, from Surfers Paradise to the hinterland. {SITE.lastUpdatedHuman}.
           </p>
-          <p className="mt-4 text-sm">
-            <a href={`mailto:${SITE.email}`} className="text-rejoov-teal hover:underline">{SITE.email}</a>
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-rejoov-gold">The guide</h2>
-          <ul className="mt-4 space-y-2.5 text-sm text-rejoov-sand/80">
-            <li><Link href="/day-spa-gold-coast" className="hover:text-rejoov-teal">Best Day Spa Gold Coast {SITE.year}</Link></li>
-            <li><Link href="/day-spa-gold-coast#best-for" className="hover:text-rejoov-teal">Best day spa by occasion</Link></li>
-            <li><Link href="/day-spa-gold-coast#prices" className="hover:text-rejoov-teal">Gold Coast day spa prices</Link></li>
-            <li><Link href="/day-spa-gold-coast#faq" className="hover:text-rejoov-teal">Day spa FAQ</Link></li>
-            <li><Link href="/about" className="hover:text-rejoov-teal">About &amp; editorial policy</Link></li>
-            <li><Link href="/contact" className="hover:text-rejoov-teal">Contact</Link></li>
-            <li><Link href="/privacy" className="hover:text-rejoov-teal">Privacy</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-rejoov-gold">Day spas by suburb</h2>
-          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm text-rejoov-sand/80">
-            {suburbs.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/day-spa/${s.slug}`} className="hover:text-rejoov-teal">{s.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-rejoov-gold">Latest guides</h2>
-          <ul className="mt-4 space-y-2.5 text-sm text-rejoov-sand/80">
-            {posts.map((p) => (
-              <li key={p.slug}>
-                <Link href={p.slug} className="hover:text-rejoov-teal">{p.title}</Link>
-              </li>
-            ))}
-            <li><Link href="/blog" className="font-semibold text-rejoov-teal hover:underline">All guides →</Link></li>
-          </ul>
-          <address className="mt-6 not-italic text-sm text-rejoov-sand/70">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-rejoov-gold">Day Spa of the Month</span><br />
-            <strong className="text-rejoov-sand">{REJOOVME.name}</strong><br />
-            {REJOOVME.street}, {REJOOVME.suburb} {REJOOVME.state} {REJOOVME.postcode}<br />
-            <a href={`tel:${REJOOVME.phone.replace(/\s/g, '')}`} className="hover:text-rejoov-teal">{REJOOVME.phone}</a>
+          <a href={`mailto:${SITE.email}`} className="link mt-4 inline-block">{SITE.email}</a>
+          <address className="mt-8 not-italic text-sm text-ink-mute">
+            Day Spa of the Month: <span className="text-ink">{REJOOVME.name}</span>
+            <br />
+            {REJOOVME.street}, {REJOOVME.suburb} {REJOOVME.state} {REJOOVME.postcode}
+            <br />
+            <a href={`tel:${REJOOVME.phone.replace(/\s/g, '')}`} className="hover:text-ink">{REJOOVME.phone}</a>
           </address>
         </div>
+
+        <nav aria-label="The guide" className="md:col-span-2">
+          <h2 className="label">The guide</h2>
+          <ul className="mt-4 space-y-2.5 text-[15px]">
+            <li><Link href="/day-spa-gold-coast" className="hover:text-lagoon">Best day spas {SITE.year}</Link></li>
+            <li><Link href="/day-spa-gold-coast#best-for" className="hover:text-lagoon">By occasion</Link></li>
+            <li><Link href="/day-spa-gold-coast#prices" className="hover:text-lagoon">Prices</Link></li>
+            <li><Link href="/day-spa-gold-coast#faq" className="hover:text-lagoon">FAQ</Link></li>
+            <li><Link href="/about" className="hover:text-lagoon">About &amp; editorial policy</Link></li>
+            <li><Link href="/contact" className="hover:text-lagoon">Contact</Link></li>
+            <li><Link href="/privacy" className="hover:text-lagoon">Privacy</Link></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Day spas by suburb" className="md:col-span-3">
+          <h2 className="label">By suburb</h2>
+          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[15px]">
+            {suburbs.map((s) => (
+              <li key={s.slug}><Link href={`/day-spa/${s.slug}`} className="hover:text-lagoon">{s.name}</Link></li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Guides" className="md:col-span-3">
+          <h2 className="label">Guides</h2>
+          <ul className="mt-4 space-y-2.5 text-[15px]">
+            {posts.map((p) => (
+              <li key={p.slug}><Link href={p.slug} className="hover:text-lagoon">{p.title.replace(/\s[, -]\s/g, ': ')}</Link></li>
+            ))}
+            <li><Link href="/blog" className="link">All guides</Link></li>
+          </ul>
+        </nav>
       </div>
-      <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-rejoov-sand/55">
-        © {SITE.year} {SITE.name}. Editorial rankings, independently produced. RejoovMe is our featured Day Spa of the Month partner.
-        <span aria-hidden className="mx-2">·</span>
-        Website created by{' '}
-        <a href="https://metatapdigital.com" target="_blank" rel="noopener" className="font-semibold text-rejoov-teal hover:underline">
-          metatapdigital.com
-        </a>
+
+      <div className="mx-auto mt-16 max-w-site overflow-hidden px-5 md:px-10">
+        <p aria-hidden className="select-none whitespace-nowrap text-[clamp(44px,10vw,150px)] leading-none text-ink/90">
+          <Wordmark />
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 flex max-w-site flex-col gap-2 border-t border-hairline px-5 pt-6 text-xs text-ink-mute md:flex-row md:justify-between md:px-10">
+        <p>© {SITE.year} {SITE.name}. Editorial rankings, independently produced. RejoovMe is our Day Spa of the Month partner.</p>
+        <p>
+          Website created by{' '}
+          <a href="https://metatapdigital.com" target="_blank" rel="noopener" className="text-ink hover:text-lagoon">metatapdigital.com</a>
+        </p>
       </div>
     </footer>
   );

@@ -14,7 +14,7 @@ export default function AboutPage() {
   return (
     <SimplePage path="/about" name="About" eyebrow="About us" title="About Day Spa Gold Coast">
       <p>
-        Day Spa Gold Coast is an independent guide to the best day spas, bathhouses and wellness retreats on the Gold Coast, Queensland — from Surfers Paradise and Broadbeach to Burleigh Heads, Coolangatta and the hinterland. Our goal is simple: help you book the right spa for the day you want, without wading through sponsored lists.
+        Day Spa Gold Coast is an independent guide to the best day spas, bathhouses and wellness retreats on the Gold Coast, Queensland, from Surfers Paradise and Broadbeach to Burleigh Heads, Coolangatta and the hinterland. Our goal is simple: help you book the right spa for the day you want, without wading through sponsored lists.
       </p>
 
       <h2>Who writes the guide</h2>

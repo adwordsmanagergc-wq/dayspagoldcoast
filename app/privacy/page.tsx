@@ -26,7 +26,7 @@ export default function PrivacyPage() {
       <p>
         Questions or requests about your information: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
       </p>
-      <p className="text-sm text-rejoov-ink/60">Last updated <time dateTime={SITE.lastUpdatedISO}>{SITE.featureMonth}</time>.</p>
+      <p className="text-sm text-ink-mute">Last updated <time dateTime={SITE.lastUpdatedISO}>{SITE.featureMonth}</time>.</p>
     </SimplePage>
   );
 }

@@ -14,12 +14,12 @@ const URL = `${SITE.url}${SLUG}`;
 export const metadata: Metadata = {
   title: { absolute: 'Day Spa by Suburb: Gold Coast Local Day Spa Guides (2026)' },
   description:
-    'Day Spa Gold Coast guides for every major suburb — Surfers Paradise, Broadbeach, Burleigh Heads, Mermaid Beach, Palm Beach, Coolangatta and more. Distance, local context, booking.',
+    'Day Spa Gold Coast guides for every major suburb, Surfers Paradise, Broadbeach, Burleigh Heads, Mermaid Beach, Palm Beach, Coolangatta and more. Distance, local context, booking.',
   alternates: { canonical: SLUG },
   openGraph: {
     type: 'website',
     url: URL,
-    title: 'Day Spa by Suburb — Gold Coast 2026 Local Guides',
+    title: 'Day Spa by Suburb: Gold Coast 2026 Local Guides',
     description:
       'Local Day Spa Gold Coast guides for every major Gold Coast suburb, with travel times, local context and booking links.',
     images: [{ url: '/og/day-spa-gold-coast.jpg', width: 1200, height: 630 }]
@@ -49,11 +49,11 @@ export default function SuburbIndexPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rejoov-deep">
             Local Guides
           </p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
-            Day Spa Gold Coast — by suburb
+          <h1 className="mt-3 font-display text-3xl font-light leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
+            Day Spa Gold Coast, by suburb
           </h1>
           <p className="mt-3 max-w-2xl text-rejoov-ink/75">
-            A dedicated guide for every major Gold Coast suburb — sorted by drive time to the 2026 Day Spa of the Month, RejoovMe in Surfers Paradise.
+            A dedicated guide for every major Gold Coast suburb, sorted by drive time to the 2026 Day Spa of the Month, RejoovMe in Surfers Paradise.
           </p>
 
           <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -65,10 +65,10 @@ export default function SuburbIndexPage() {
                 >
                   <div>
                     <div className="flex items-baseline gap-2">
-                      <h2 className="font-display text-lg font-semibold text-rejoov-ink group-hover:text-rejoov-deep md:text-xl">
+                      <h2 className="font-display text-lg font-normal text-rejoov-ink group-hover:text-rejoov-deep md:text-xl">
                         Day Spa {s.name}
                       </h2>
-                      <span className="text-xs text-rejoov-ink/45">{s.postcode}</span>
+                      <span className="text-xs text-ink-mute">{s.postcode}</span>
                     </div>
                     <p className="mt-2 text-sm leading-relaxed text-rejoov-ink/70">{s.vibe}</p>
                   </div>

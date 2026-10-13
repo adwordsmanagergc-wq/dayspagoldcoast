@@ -7,7 +7,7 @@ export function Breadcrumbs({
 }) {
   return (
     <nav aria-label="Breadcrumb" className="mx-auto max-w-5xl px-5 pt-6">
-      <ol className="flex flex-wrap items-center gap-2 text-sm text-rejoov-ink/60">
+      <ol className="flex flex-wrap items-center gap-2 text-sm text-ink-mute">
         {items.map((it, i) => (
           <li key={it.href} className="flex items-center gap-2">
             {i > 0 && <span aria-hidden="true">›</span>}

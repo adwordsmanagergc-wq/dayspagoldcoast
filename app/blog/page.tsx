@@ -15,12 +15,12 @@ const URL = `${SITE.url}${SLUG}`;
 export const metadata: Metadata = {
   title: { absolute: 'Day Spa Gold Coast Blog: Rankings, Packages & Hens Guides (2026)' },
   description:
-    'Editorial Day Spa Gold Coast features for 2026 — monthly rankings, Day Spa of the Month picks, hens party itineraries and in-depth Surfers Paradise spa reviews.',
+    'Editorial Day Spa Gold Coast features for 2026, monthly rankings, Day Spa of the Month picks, hens party itineraries and in-depth Surfers Paradise spa reviews.',
   alternates: { canonical: SLUG },
   openGraph: {
     type: 'website',
     url: URL,
-    title: 'Day Spa Gold Coast Blog — 2026 Rankings & Reviews',
+    title: 'Day Spa Gold Coast Blog: 2026 Rankings & Reviews',
     description:
       'Long-form, independently produced Day Spa Gold Coast features, rankings and Day Spa of the Month picks.',
     images: [{ url: '/og/day-spa-gold-coast.jpg', width: 1200, height: 630 }]
@@ -65,7 +65,7 @@ export default function BlogIndexPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rejoov-deep">
               Editorial
             </p>
-            <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
+            <h1 className="mt-3 font-display text-3xl font-light leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
               The Day Spa Gold Coast Blog
             </h1>
             <p className="mt-3 text-rejoov-ink/75">
@@ -91,7 +91,7 @@ export default function BlogIndexPage() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-5 md:p-6">
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-rejoov-ink/55">
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-ink-mute">
                       <span className="font-semibold uppercase tracking-wider text-rejoov-deep">
                         {p.tags[0]}
                       </span>
@@ -100,7 +100,7 @@ export default function BlogIndexPage() {
                       <span aria-hidden>·</span>
                       <span>{p.readingMins} min read</span>
                     </div>
-                    <h2 className="mt-3 font-display text-xl font-semibold leading-snug text-rejoov-ink group-hover:text-rejoov-deep md:text-2xl">
+                    <h2 className="mt-3 font-display text-xl font-normal leading-snug text-rejoov-ink group-hover:text-rejoov-deep md:text-2xl">
                       {p.title}
                     </h2>
                     <p className="mt-2 text-sm leading-relaxed text-rejoov-ink/75 md:text-base">
@@ -115,7 +115,7 @@ export default function BlogIndexPage() {
             ))}
           </ul>
 
-          <p className="mt-12 text-sm text-rejoov-ink/60">
+          <p className="mt-12 text-sm text-ink-mute">
             Looking for the full guide? Read{' '}
             <Link href="/day-spa-gold-coast" className="font-semibold text-rejoov-deep underline">
               The Best Day Spa Gold Coast Guide For 2026

@@ -13,11 +13,10 @@ import { JsonLd } from '@/components/JsonLd';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { QuickAnswer } from '@/components/QuickAnswer';
-import { Intro } from '@/components/Intro';
-import { ComparisonTable } from '@/components/ComparisonTable';
-import { RejoovMeFeature } from '@/components/RejoovMeFeature';
+import { SpaFinder } from '@/components/SpaFinder';
+import { Ritual } from '@/components/Ritual';
+import { RejoovReview } from '@/components/RejoovReview';
 import { BestFor } from '@/components/BestFor';
-import { CompetitorList } from '@/components/CompetitorList';
 import { PriceGuide, ChoosingGuide } from '@/components/PriceGuide';
 import { SuburbGrid } from '@/components/SuburbGrid';
 import { Methodology } from '@/components/Methodology';
@@ -63,7 +62,7 @@ export default function DaySpaGoldCoastPage() {
       position: 1,
       name: REJOOVME.name,
       url: REJOOVME.url,
-      description: `Day Spa of the Month — ${SITE.featureMonth}. Magnesium spa, steam room and full skin clinic capability in Surfers Paradise.`
+      description: `Day Spa of the Month, ${SITE.featureMonth}. Magnesium spa, steam room and full skin clinic capability in Surfers Paradise.`
     },
     ...competitors.map((c, i) => ({
       position: i + 2,
@@ -87,13 +86,12 @@ export default function DaySpaGoldCoastPage() {
       <Header />
       <main id="main">
         <article>
-          <Hero readingMins={14} />
+          <Hero />
           <QuickAnswer />
-          <Intro />
-          <ComparisonTable />
-          <RejoovMeFeature />
+          <SpaFinder />
+          <Ritual />
+          <RejoovReview />
           <BestFor />
-          <CompetitorList />
           <PriceGuide />
           <ChoosingGuide />
           <SuburbGrid />

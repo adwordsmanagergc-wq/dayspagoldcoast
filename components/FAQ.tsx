@@ -2,23 +2,21 @@ import { faqs } from '@/lib/data';
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-3xl px-5">
-        <p className="eyebrow">FAQ</p>
-        <h2 className="mt-2 font-display text-3xl font-semibold text-rejoov-night md:text-4xl">
-          Day spa Gold Coast FAQ
+    <section id="faq" className="mx-auto max-w-site px-5 py-24 md:px-10 md:py-32">
+      <div className="grid gap-10 md:grid-cols-12">
+        <h2 className="reveal text-[clamp(40px,5.5vw,76px)] font-light leading-[1.02] md:col-span-12">
+          Day spa Gold Coast <em className="italic">questions</em>
         </h2>
-        <p className="mt-3 text-rejoov-ink/70">What readers ask us most before booking a Gold Coast day spa.</p>
-        <div className="mt-8 divide-y divide-black/5 rounded-2xl ring-1 ring-black/5">
+        <div className="border-t border-hairline md:col-span-9 md:col-start-4">
           {faqs.map((f, i) => (
-            <details key={f.q} className="group p-5 open:bg-rejoov-sand/60" open={i === 0}>
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-lg font-semibold text-rejoov-night">
-                <h3 className="text-left text-base md:text-lg">{f.q}</h3>
-                <span aria-hidden className="mt-0.5 inline-flex h-7 w-7 flex-none select-none items-center justify-center rounded-full bg-rejoov-shell text-rejoov-deep transition group-open:rotate-45">
+            <details key={f.q} className="group border-b border-hairline" open={i === 0}>
+              <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-6 py-4">
+                <h3 className="text-[20px] leading-snug md:text-[24px] md:font-light">{f.q}</h3>
+                <span aria-hidden className="flex h-9 w-9 flex-none items-center justify-center rounded-full text-lagoon shadow-[inset_0_0_0_1px_var(--hairline)] transition-transform duration-200 ease-out group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <p className="mt-3 leading-relaxed text-rejoov-ink/80">{f.a}</p>
+              <p className="max-w-[64ch] pb-6 text-ink-mute">{f.a}</p>
             </details>
           ))}
         </div>

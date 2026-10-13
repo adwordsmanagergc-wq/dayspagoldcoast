@@ -2,12 +2,23 @@
 
 A high-performance, SEO-optimised Next.js 14 site targeting the keyword **"Day Spa Gold Coast"**, engineered to outrank The Urban List's organic result. RejoovMe Skin Clinic & Day Spa (Surfers Paradise) is featured as the prominent **Day Spa of the Month**.
 
+## Design system
+
+`DESIGN.md` is the single source of truth for the visual language ("salt and lagoon"): Newsreader (light, editorial) + Geist, one lagoon-teal accent, 20px surfaces, motion tokens. Tailwind tokens in `tailwind.config.ts` mirror it; the legacy `rejoov-*` colour names are remapped onto the new palette.
+
+Motion layer (all honour `prefers-reduced-motion`):
+- Hero words materialise from blur; arch image wipes up (CSS).
+- Section reveals and the header "tide line" progress use CSS scroll-driven animations (no JS; static where unsupported).
+- `components/Ritual.tsx`: Day Spa of the Month as a pinned horizontal scroll story (Motion `useScroll`), swipe row on phones / reduced motion.
+- `components/SpaFinder.tsx`: occasion filter with layout animation; every spa stays in the server HTML.
+- Price range chart bars grow in on view; one marquee (signature packages), paused on hover/focus.
+
 ## Stack
 
 - **Next.js 14** (App Router) + TypeScript
-- **Tailwind CSS** with the RejoovMe palette tokenised in `tailwind.config.ts`
+- **Tailwind CSS** with DESIGN.md tokens in `tailwind.config.ts`
+- **Motion** (`motion/react`) for the scroll story and filter; **Phosphor** icons; **Geist** + **Newsreader** fonts
 - **next/image** for AVIF/WebP, lazy-loading, fixed dimensions (zero CLS)
-- **next/font** with `display: swap` for Fraunces (display) + Nunito Sans (body)
 - Native `app/sitemap.ts` and `app/robots.ts` (lastmod driven by `SITE.lastUpdatedISO`)
 - JSON-LD rendered server-side via `components/JsonLd.tsx` (in the initial HTML, no JS needed)
 

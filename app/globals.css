@@ -2,102 +2,223 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tokens: see DESIGN.md */
 :root {
-  --rejoov-teal: #4FD1C5;
-  --rejoov-mint: #81E6D9;
-  --rejoov-neon: #00FFCB;
-  --rejoov-ink: #313133;
-  --rejoov-sand: #FAF6F0;
-  --rejoov-gold: #D4AF7A;
+  --canvas: #F3F1EC;
+  --canvas-soft: #EAE7E0;
+  --surface: #FBFAF7;
+  --ink: #16231F;
+  --ink-mute: #56625D;
+  --hairline: #D9D6CE;
+  --lagoon: #1E6F66;
+  --lagoon-press: #175A53;
+  --lagoon-wash: #DCE8E3;
+  --lagoon-mark: #0F8F80;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  /* z-index scale */
+  --z-progress: 30;
+  --z-header: 40;
+  --z-sticky-cta: 45;
+  --z-skip: 60;
 }
 
 html {
-  scroll-behavior: smooth;
+  --font-body: var(--font-geist-sans);
   text-rendering: optimizeLegibility;
-}
-
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--rejoov-sand);
-  color: var(--rejoov-ink);
+  background: var(--canvas);
+  color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
+p { text-wrap: pretty; }
+
+::selection { background: var(--lagoon-wash); color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--lagoon);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+[id] { scroll-margin-top: 6rem; }
+
+summary::-webkit-details-marker { display: none; }
+
+/* ---------- Components (in the components layer so utilities like `hidden` win) ---------- */
+@layer components {
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: background-color 180ms var(--ease-out), color 180ms var(--ease-out), transform 120ms var(--ease-out), box-shadow 180ms var(--ease-out);
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--lagoon); color: var(--canvas); }
+.btn-primary:hover { background: var(--lagoon-press); }
+.btn-ghost { color: var(--ink); box-shadow: inset 0 0 0 1px var(--hairline); }
+.btn-ghost:hover { background: var(--canvas-soft); }
+.btn .btn-arrow { transition: transform 180ms var(--ease-out); }
+.btn:hover .btn-arrow { transform: translateX(3px); }
+
+/* Legacy CTA class used by long-form pages: now the primary button. */
 .rejoov-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.95rem 1.75rem;
+  min-height: 48px;
+  padding: 0 1.5rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #4FD1C5 0%, #00FFCB 100%);
-  color: #093735;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  box-shadow: 0 12px 28px rgba(79,209,197,0.64);
-  transition: transform .2s ease, box-shadow .2s ease;
+  background: var(--lagoon);
+  color: var(--canvas);
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: background-color 180ms var(--ease-out), transform 120ms var(--ease-out);
 }
+.rejoov-pill:hover { background: var(--lagoon-press); }
+.rejoov-pill:active { transform: scale(0.97); }
 
-.rejoov-pill:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 36px rgba(79,209,197,0.7);
-}
-
-.wave-divider {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'><path d='M0 40 Q 300 80 600 40 T 1200 40 V80 H0Z' fill='%2381E6D9' fill-opacity='0.25'/></svg>");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 60px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-}
-
-/* ---- October 2026 redesign additions ---- */
-
-:root {
-  --rejoov-deep: #0B6B65;
-  --rejoov-night: #0F2A2B;
-}
-
-::selection { background: rgba(79,209,197,0.35); }
-
-:focus-visible {
-  outline: 2px solid var(--rejoov-deep);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-/* Anchor targets clear the sticky header. */
-[id] { scroll-margin-top: 5.5rem; }
-
-.eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--rejoov-deep);
+  color: var(--ink-mute);
+}
+/* Legacy eyebrow name. */
+.eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lagoon); }
+
+.lift {
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+}
+@media (hover: hover) {
+  .lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(22,35,31,0.06), 0 28px 60px -28px rgba(22,35,31,0.35);
+  }
 }
 
-.prose-rejoov a { color: var(--rejoov-deep); text-decoration: underline; text-underline-offset: 3px; }
-.prose-rejoov strong { color: var(--rejoov-ink); }
-
-.grain {
-  background-image: radial-gradient(rgba(15,42,43,0.05) 1px, transparent 1px);
-  background-size: 18px 18px;
+.prose-rejoov a, .link {
+  color: var(--lagoon);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 180ms var(--ease-out);
 }
-
-/* Hide the native disclosure triangle on custom <summary> elements. */
-summary::-webkit-details-marker { display: none; }
+.prose-rejoov strong { color: var(--ink); font-weight: 600; }
 
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.arch { border-radius: 999px 999px 20px 20px; }
+
+}
+
+/* Grain: fixed, pointer-events-none layer only. */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- Motion (all gated behind no-preference) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero arrival: words materialise from a soft blur, staggered. */
+  .arrive {
+    animation: arrive 900ms var(--ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * 70ms + 120ms);
+  }
+  @keyframes arrive {
+    from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  }
+
+  /* Image wipe: reveals bottom-up like water draining from glass. */
+  .wipe {
+    animation: wipe 1200ms var(--ease-out) backwards;
+    animation-delay: var(--d, 200ms);
+  }
+  @keyframes wipe {
+    from { clip-path: inset(100% 0 0 0); transform: scale(1.06); }
+  }
+
+  /* Scroll-driven reveals (no JS). Unsupported browsers: static. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
+    }
+    .reveal-wipe {
+      animation: reveal-wipe linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+    @keyframes reveal-wipe {
+      from { clip-path: inset(30% 0 0 0 round 20px); transform: scale(1.04); }
+      to { clip-path: inset(0 0 0 0 round 20px); }
+    }
+    .grow-x {
+      transform-origin: left center;
+      animation: grow-x linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+    @keyframes grow-x { from { transform: scaleX(0); } }
+
+    /* Tide line: page progress under the header. */
+    .tide {
+      transform-origin: left center;
+      animation: tide linear both;
+      animation-timeline: scroll(root);
+    }
+    @keyframes tide { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  }
+
+  /* Single marquee on the page (signature packages). Pauses on hover/focus. */
+  .marquee-track { animation: marquee 48s linear infinite; }
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+}
+
+/* Without scroll-timeline support the tide line has nothing to show. */
+@supports not (animation-timeline: scroll()) {
+  .tide { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tide { display: none; }
+  .marquee-track { flex-wrap: wrap; width: auto !important; }
+  .marquee-dup { display: none; }
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Drop } from '@phosphor-icons/react/dist/ssr';
 import { JsonLd } from '@/components/JsonLd';
 import { notFound } from 'next/navigation';
 import { SITE, REJOOVME } from '@/lib/site';
@@ -30,8 +31,8 @@ export async function generateMetadata(
   const title = `Day Spa ${s.name}: Best Day Spa Near ${s.name} (${SITE.year})`;
   const description =
     s.travelMins === 0
-      ? `The best day spa in ${s.name} for 2026 — RejoovMe Skin Clinic & Day Spa, two minutes from Cavill Avenue with magnesium spa, steam room and free parking.`
-      : `The best day spa near ${s.name} for 2026 — RejoovMe in Surfers Paradise, only ${s.travelMins} minutes from ${s.name}. Magnesium spa, steam room, free parking.`;
+      ? `The best day spa in ${s.name} for 2026, RejoovMe Skin Clinic & Day Spa, two minutes from Cavill Avenue with magnesium spa, steam room and free parking.`
+      : `The best day spa near ${s.name} for 2026, RejoovMe in Surfers Paradise, only ${s.travelMins} minutes from ${s.name}. Magnesium spa, steam room, free parking.`;
   const url = `${SITE.url}/day-spa/${s.slug}`;
   return {
     title: { absolute: title },
@@ -85,10 +86,10 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
 
         <article className="mx-auto max-w-3xl px-5 py-10 md:py-14">
           <p className="inline-flex items-center gap-2 rounded-full bg-rejoov-teal/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rejoov-deep">
-            🌴 {s.name} · {s.postcode}
+            {s.name} · {s.postcode}
           </p>
-          <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
-            Day Spa {s.name} — 2026 Local Guide
+          <h1 className="mt-4 font-display text-3xl font-light leading-tight text-rejoov-ink sm:text-4xl md:text-5xl">
+            Day Spa {s.name}: {SITE.year} Local Guide
           </h1>
           <p className="mt-4 max-w-2xl font-display text-lg italic text-rejoov-ink/80 md:text-xl">
             {s.vibe}
@@ -99,17 +100,17 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-rejoov-deep">
               {s.travelMins === 0 ? 'Right here' : `Only ${s.travelMins} minutes from ${s.name}`}
             </p>
-            <h2 className="mt-2 font-display text-xl font-semibold text-rejoov-ink md:text-2xl">
+            <h2 className="mt-2 font-display text-xl font-normal text-rejoov-ink md:text-2xl">
               {s.travelMins === 0
-                ? `Book the Day Spa of the Month — right in ${s.name}`
-                : `Book RejoovMe — the Day Spa of the Month — just ${s.travelMins} minutes from ${s.name}`}
+                ? `Book the Day Spa of the Month, right in ${s.name}`
+                : `Book RejoovMe, the Day Spa of the Month, just ${s.travelMins} minutes from ${s.name}`}
             </h2>
             <p className="mt-2 text-sm text-rejoov-ink/80 md:text-base">{s.travelLine}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
                 href={REJOOVME.url}
                 rel="noopener"
-                className="rejoov-pill animate-pulseRing !px-5 !py-3 !text-sm md:!px-6 md:!py-3.5 md:!text-base"
+                className="rejoov-pill !px-5 !py-3 !text-sm md:!px-6 md:!py-3.5 md:!text-base"
               >
                 Book RejoovMe
               </a>
@@ -132,7 +133,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
 
           {/* Why book here */}
           <section className="mt-12 rounded-2xl bg-white/70 p-6 ring-1 ring-black/5 md:p-8">
-            <h2 className="font-display text-2xl font-semibold text-rejoov-ink md:text-3xl">
+            <h2 className="font-display text-2xl font-normal text-rejoov-ink md:text-3xl">
               Why book a day spa from {s.name}?
             </h2>
             <p className="mt-3 text-base leading-relaxed text-rejoov-ink/85 md:text-[1.05rem]">
@@ -142,18 +143,13 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
 
           {/* Local character */}
           <section className="mt-10 rounded-2xl bg-white/70 p-6 ring-1 ring-black/5 md:p-8">
-            <h2 className="font-display text-2xl font-semibold text-rejoov-ink md:text-3xl">
+            <h2 className="font-display text-2xl font-normal text-rejoov-ink md:text-3xl">
               The {s.name} local rhythm
             </h2>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-rejoov-ink/85 md:text-base">
               {s.localCharacter.map((c, i) => (
                 <li key={i} className="flex gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-1 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-rejoov-teal/15 text-rejoov-deep text-xs font-bold"
-                  >
-                    ✦
-                  </span>
+                  <Drop size={18} className="mt-1 flex-none text-lagoon" aria-hidden />
                   <span>{c}</span>
                 </li>
               ))}
@@ -172,21 +168,21 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
               />
               <div className="flex-1">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-rejoov-deep">
-                  Day Spa of the Month — {SITE.featureMonth}
+                  Day Spa of the Month, {SITE.featureMonth}
                 </p>
-                <h2 className="mt-1 font-display text-xl font-semibold text-rejoov-ink md:text-2xl">
+                <h2 className="mt-1 font-display text-xl font-normal text-rejoov-ink md:text-2xl">
                   Our pick for {s.name} residents: RejoovMe in Surfers Paradise
                 </h2>
               </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-rejoov-ink/85 md:text-base">
-              Magnesium spa, steam room, four single treatment rooms and two double rooms for couples and hens groups. Full skin clinic capability — Dermapen, LED Medilight, peels, enzyme therapy. Free unlimited basement parking with every booking, next door to Mantra Wings.
+              Magnesium spa, steam room, four single treatment rooms and two double rooms for couples and hens groups. Full skin clinic capability, Dermapen, LED Medilight, peels, enzyme therapy. Free unlimited basement parking with every booking, next door to Mantra Wings.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
                 href={REJOOVME.url}
                 rel="noopener"
-                className="rejoov-pill animate-pulseRing !px-5 !py-3 !text-sm md:!px-7 md:!py-4 md:!text-base"
+                className="rejoov-pill !px-5 !py-3 !text-sm md:!px-7 md:!py-4 md:!text-base"
               >
                 Book RejoovMe
               </a>
@@ -202,13 +198,13 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
 
           {/* FAQs */}
           <section className="mt-12">
-            <h2 className="font-display text-2xl font-semibold text-rejoov-ink md:text-3xl">
+            <h2 className="font-display text-2xl font-normal text-rejoov-ink md:text-3xl">
               Day Spa {s.name} FAQ
             </h2>
             <div className="mt-6 divide-y divide-black/5 rounded-2xl bg-white/70 ring-1 ring-black/5">
               {s.faqs.map((f) => (
                 <details key={f.q} className="group p-5 open:bg-rejoov-teal/5">
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-base font-semibold text-rejoov-ink md:text-lg">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-base font-normal text-rejoov-ink md:text-lg">
                     <span>{f.q}</span>
                     <span aria-hidden className="mt-1 select-none text-rejoov-deep transition group-open:rotate-45">
                       +
@@ -223,7 +219,7 @@ export default function SuburbPage({ params }: { params: { suburb: string } }) {
           {/* Nearby */}
           {s.nearby.length > 0 && (
             <section className="mt-12">
-              <h2 className="font-display text-xl font-semibold text-rejoov-ink md:text-2xl">
+              <h2 className="font-display text-xl font-normal text-rejoov-ink md:text-2xl">
                 Nearby suburbs
               </h2>
               <ul className="mt-4 flex flex-wrap gap-2">
