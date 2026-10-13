@@ -5,6 +5,12 @@ export const SITE = {
   publisher: 'Day Spa Gold Coast Editorial',
   twitter: '@dayspagoldcoast',
   email: 'editorial@dayspagoldcoast.com',
+  // "Get your spa included" requests go here (WhatsApp number without +).
+  inclusion: {
+    whatsapp: '61488898835',
+    whatsappDisplay: '+61 488 898 835',
+    email: 'aj@metatapdigital.com'
+  },
   // Bump these three together every refresh — they drive titles, badges,
   // schema dateModified and sitemap lastmod across the whole site.
   lastUpdatedISO: '2026-10-01',

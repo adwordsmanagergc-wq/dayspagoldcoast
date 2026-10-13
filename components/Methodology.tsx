@@ -50,7 +50,7 @@ export function Methodology() {
         ))}
       </div>
       <p className="mt-10 text-center text-sm text-ink-mute">
-        Know a venue we should review? <a href={`mailto:${SITE.email}`} className="link">Tell our editors</a>. Last reviewed <time dateTime={SITE.lastUpdatedISO}>{SITE.featureMonth}</time>.
+        Run a spa we should review? <a href="#get-listed" className="link">Request to be included</a>. Last reviewed <time dateTime={SITE.lastUpdatedISO}>{SITE.featureMonth}</time>.
       </p>
     </section>
   );

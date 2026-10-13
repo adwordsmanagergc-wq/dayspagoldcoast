@@ -29,6 +29,7 @@ export function Footer() {
             <li><Link href="/day-spa-gold-coast#best-for" className="hover:text-lagoon">By occasion</Link></li>
             <li><Link href="/day-spa-gold-coast#prices" className="hover:text-lagoon">Prices</Link></li>
             <li><Link href="/day-spa-gold-coast#faq" className="hover:text-lagoon">FAQ</Link></li>
+            <li><Link href="/day-spa-gold-coast#get-listed" className="hover:text-lagoon">Get your spa included</Link></li>
             <li><Link href="/about" className="hover:text-lagoon">About &amp; editorial policy</Link></li>
             <li><Link href="/contact" className="hover:text-lagoon">Contact</Link></li>
             <li><Link href="/privacy" className="hover:text-lagoon">Privacy</Link></li>

@@ -20,6 +20,7 @@ import { BestFor } from '@/components/BestFor';
 import { PriceGuide, ChoosingGuide } from '@/components/PriceGuide';
 import { SuburbGrid } from '@/components/SuburbGrid';
 import { Methodology } from '@/components/Methodology';
+import { GetListed } from '@/components/GetListed';
 import { FAQ } from '@/components/FAQ';
 import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
@@ -96,6 +97,7 @@ export default function DaySpaGoldCoastPage() {
           <ChoosingGuide />
           <SuburbGrid />
           <Methodology />
+          <GetListed className="pb-8" />
           <FAQ />
           <FinalCTA />
         </article>
